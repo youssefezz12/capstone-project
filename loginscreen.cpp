@@ -1,0 +1,25 @@
+#include "loginscreen.h"
+#include "ui_loginscreen.h"
+#include <QMessageBox>
+
+LoginScreen::LoginScreen(QWidget *parent) :
+    QWidget(parent),
+    ui(new Ui::LoginScreen)
+{
+    ui->setupUi(this);
+    connect(ui->loginButton, &QPushButton::clicked, this, &LoginScreen::handleLogin);
+    connect(ui->registerButton, &QPushButton::clicked, this, &LoginScreen::registerClicked);
+}
+
+LoginScreen::~LoginScreen()
+{
+    delete ui;
+}
+
+void LoginScreen::handleLogin()
+{
+    if (ui->customerRadio->isChecked())
+        emit loginAsCustomer();
+    else if (ui->providerRadio->isChecked())
+        emit loginAsProvider();
+}

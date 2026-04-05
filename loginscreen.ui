@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>LoginScreen</class>
+ <widget class="QWidget" name="LoginScreen">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>601</width>
+    <height>429</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <widget class="QWidget" name="widget" native="true">
+     <property name="styleSheet">
+      <string notr="true">QWidget {
+background-color: #e8f4fd;
+}</string>
+     </property>
+     <widget class="QWidget" name="widget_2" native="true">
+      <property name="geometry">
+       <rect>
+        <x>160</x>
+        <y>10</y>
+        <width>371</width>
+        <height>391</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QWidget{
+background-color:white;
+border-radius:16 px;
+}</string>
+      </property>
+      <widget class="QLabel" name="label">
+       <property name="geometry">
+        <rect>
+         <x>100</x>
+         <y>10</y>
+         <width>141</width>
+         <height>61</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>24</pointsize>
+         <italic>true</italic>
+        </font>
+       </property>
+       <property name="text">
+        <string>ServLink</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_2">
+       <property name="geometry">
+        <rect>
+         <x>30</x>
+         <y>90</y>
+         <width>66</width>
+         <height>18</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Email:</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="lineEdit">
+       <property name="geometry">
+        <rect>
+         <x>30</x>
+         <y>120</y>
+         <width>241</width>
+         <height>26</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QWidget{
+background-color: #e8f4fd;
+}</string>
+       </property>
+       <property name="text">
+        <string>enter your email</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_3">
+       <property name="geometry">
+        <rect>
+         <x>30</x>
+         <y>170</y>
+         <width>66</width>
+         <height>18</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Password:</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="lineEdit_2">
+       <property name="geometry">
+        <rect>
+         <x>30</x>
+         <y>200</y>
+         <width>113</width>
+         <height>26</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="lineEdit_3">
+       <property name="geometry">
+        <rect>
+         <x>30</x>
+         <y>200</y>
+         <width>241</width>
+         <height>26</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QWidget{
+background-color: #e8f4fd;
+}</string>
+       </property>
+       <property name="text">
+        <string>enter your password</string>
+       </property>
+       <property name="echoMode">
+        <enum>QLineEdit::EchoMode::Password</enum>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_4">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>250</y>
+         <width>66</width>
+         <height>18</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Role: </string>
+       </property>
+      </widget>
+      <widget class="QRadioButton" name="customerRadio">
+       <property name="geometry">
+        <rect>
+         <x>80</x>
+         <y>250</y>
+         <width>110</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Customer</string>
+       </property>
+      </widget>
+      <widget class="QRadioButton" name="providerRadio">
+       <property name="geometry">
+        <rect>
+         <x>210</x>
+         <y>250</y>
+         <width>110</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Provider</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="loginButton">
+       <property name="geometry">
+        <rect>
+         <x>30</x>
+         <y>300</y>
+         <width>94</width>
+         <height>26</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Login</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="registerButton">
+       <property name="geometry">
+        <rect>
+         <x>170</x>
+         <y>300</y>
+         <width>94</width>
+         <height>26</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Register</string>
+       </property>
+      </widget>
+     </widget>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
