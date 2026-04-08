@@ -2,6 +2,7 @@
 #define LOGINSCREEN_H
 
 #include <QWidget>
+#include "usersearch.h"
 
 namespace Ui { class LoginScreen; }
 
@@ -21,8 +22,11 @@ signals:
 private slots:
     void handleLogin();
 
+    void on_registerButton_clicked();
+
 private:
     Ui::LoginScreen *ui;
+    UserSearch *usersearch;
 };
 
 #endif

@@ -1,0 +1,9 @@
+/home/sama/Capstone/build/CMakeFiles/ServiceFinder.dir
+/home/sama/Capstone/build/CMakeFiles/edit_cache.dir
+/home/sama/Capstone/build/CMakeFiles/rebuild_cache.dir
+/home/sama/Capstone/build/CMakeFiles/list_install_components.dir
+/home/sama/Capstone/build/CMakeFiles/install.dir
+/home/sama/Capstone/build/CMakeFiles/install/local.dir
+/home/sama/Capstone/build/CMakeFiles/install/strip.dir
+/home/sama/Capstone/build/CMakeFiles/ServiceFinder_autogen_timestamp_deps.dir
+/home/sama/Capstone/build/CMakeFiles/ServiceFinder_autogen.dir
