@@ -14,5 +14,6 @@ class Provider: public User
     public:
         Provider(string, string, string , double =0);
         bool isAvailable() const;
+        string getCategory() const;
 };
 #endif

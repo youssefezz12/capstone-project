@@ -32,7 +32,7 @@ public:
     QLabel *welcome_label;
     QHBoxLayout *horizontalLayout;
     QPushButton *search_button;
-    QLineEdit *lineEdit;
+    QLineEdit *categoryLineEdit;
     QTableWidget *tableWidget;
 
     void setupUi(QDialog *UserSearch)
@@ -58,10 +58,10 @@ public:
 
         horizontalLayout->addWidget(search_button);
 
-        lineEdit = new QLineEdit(widget);
-        lineEdit->setObjectName("lineEdit");
+        categoryLineEdit = new QLineEdit(widget);
+        categoryLineEdit->setObjectName("categoryLineEdit");
 
-        horizontalLayout->addWidget(lineEdit);
+        horizontalLayout->addWidget(categoryLineEdit);
 
 
         verticalLayout_2->addLayout(horizontalLayout);
@@ -93,7 +93,7 @@ public:
         UserSearch->setWindowTitle(QCoreApplication::translate("UserSearch", "Dialog", nullptr));
         welcome_label->setText(QCoreApplication::translate("UserSearch", "Welcome back!", nullptr));
         search_button->setText(QCoreApplication::translate("UserSearch", "Search", nullptr));
-        lineEdit->setText(QCoreApplication::translate("UserSearch", "What service do you need?", nullptr));
+        categoryLineEdit->setText(QCoreApplication::translate("UserSearch", "What service do you need?", nullptr));
         QTableWidgetItem *___qtablewidgetitem = tableWidget->horizontalHeaderItem(0);
         ___qtablewidgetitem->setText(QCoreApplication::translate("UserSearch", "Name", nullptr));
         QTableWidgetItem *___qtablewidgetitem1 = tableWidget->horizontalHeaderItem(1);

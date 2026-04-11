@@ -394,4 +394,9 @@ CMakeFiles/ServiceFinder.dir/usersearch.cpp.o: \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qtableview.h \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QVBoxLayout \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QWidget \
- /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qwidget.h
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qwidget.h \
+ /home/sama/Capstone/System.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/QString \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qstring.h \
+ /home/sama/Capstone/User.h /home/sama/Capstone/Provider.h \
+ /home/sama/Capstone/Booking.h

@@ -25,10 +25,12 @@ void LoginScreen::handleLogin()
         emit loginAsProvider();
 }
 
-void LoginScreen::on_registerButton_clicked()
+void LoginScreen::registerClicked()
 {
     QMessageBox::information(this, "Register", "The User has been created successfully");
-    usersearch = new UserSearch(this);
-    usersearch->show();
+    if (ui->customerRadio->isChecked())
+        emit loginAsCustomer();
+    else if (ui->providerRadio->isChecked())
+        emit loginAsProvider();
 }
 

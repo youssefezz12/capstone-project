@@ -17,12 +17,10 @@ public:
 signals:
     void loginAsCustomer();
     void loginAsProvider();
-    void registerClicked();
 
 private slots:
     void handleLogin();
-
-    void on_registerButton_clicked();
+    void registerClicked();
 
 private:
     Ui::LoginScreen *ui;

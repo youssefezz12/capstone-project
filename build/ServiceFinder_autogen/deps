@@ -1,5 +1,13 @@
 ServiceFinder_autogen/timestamp: \
+	/home/sama/Capstone/Booking.cpp \
+	/home/sama/Capstone/Booking.h \
 	/home/sama/Capstone/CMakeLists.txt \
+	/home/sama/Capstone/Provider.cpp \
+	/home/sama/Capstone/Provider.h \
+	/home/sama/Capstone/System.cpp \
+	/home/sama/Capstone/System.h \
+	/home/sama/Capstone/User.cpp \
+	/home/sama/Capstone/User.h \
 	/home/sama/Capstone/build/CMakeFiles/3.28.3/CMakeCXXCompiler.cmake \
 	/home/sama/Capstone/build/CMakeFiles/3.28.3/CMakeSystem.cmake \
 	/home/sama/Capstone/build/ServiceFinder_autogen/moc_predefs.h \
@@ -293,6 +301,7 @@ ServiceFinder_autogen/timestamp: \
 	/usr/include/x86_64-linux-gnu/c++/13/bits/os_defines.h \
 	/usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
 	/usr/include/x86_64-linux-gnu/gnu/stubs.h \
+	/usr/include/x86_64-linux-gnu/qt6/QtCore/QString \
 	/usr/include/x86_64-linux-gnu/qt6/QtCore/qalgorithms.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtCore/qanystringview.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtCore/qarraydata.h \

@@ -26,14 +26,13 @@ QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 namespace {
 struct qt_meta_stringdata_LoginScreen_t {
-    uint offsetsAndSizes[14];
+    uint offsetsAndSizes[12];
     char stringdata0[12];
     char stringdata1[16];
     char stringdata2[1];
     char stringdata3[16];
-    char stringdata4[16];
-    char stringdata5[12];
-    char stringdata6[26];
+    char stringdata4[12];
+    char stringdata5[16];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(sizeof(qt_meta_stringdata_LoginScreen_t::offsetsAndSizes) + ofs), len 
@@ -43,17 +42,15 @@ Q_CONSTINIT static const qt_meta_stringdata_LoginScreen_t qt_meta_stringdata_Log
         QT_MOC_LITERAL(12, 15),  // "loginAsCustomer"
         QT_MOC_LITERAL(28, 0),  // ""
         QT_MOC_LITERAL(29, 15),  // "loginAsProvider"
-        QT_MOC_LITERAL(45, 15),  // "registerClicked"
-        QT_MOC_LITERAL(61, 11),  // "handleLogin"
-        QT_MOC_LITERAL(73, 25)   // "on_registerButton_clicked"
+        QT_MOC_LITERAL(45, 11),  // "handleLogin"
+        QT_MOC_LITERAL(57, 15)   // "registerClicked"
     },
     "LoginScreen",
     "loginAsCustomer",
     "",
     "loginAsProvider",
-    "registerClicked",
     "handleLogin",
-    "on_registerButton_clicked"
+    "registerClicked"
 };
 #undef QT_MOC_LITERAL
 } // unnamed namespace
@@ -64,24 +61,22 @@ Q_CONSTINIT static const uint qt_meta_data_LoginScreen[] = {
       10,       // revision
        0,       // classname
        0,    0, // classinfo
-       5,   14, // methods
+       4,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
-       3,       // signalCount
+       2,       // signalCount
 
  // signals: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    0,   44,    2, 0x06,    1 /* Public */,
-       3,    0,   45,    2, 0x06,    2 /* Public */,
-       4,    0,   46,    2, 0x06,    3 /* Public */,
+       1,    0,   38,    2, 0x06,    1 /* Public */,
+       3,    0,   39,    2, 0x06,    2 /* Public */,
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       5,    0,   47,    2, 0x08,    4 /* Private */,
-       6,    0,   48,    2, 0x08,    5 /* Private */,
+       4,    0,   40,    2, 0x08,    3 /* Private */,
+       5,    0,   41,    2, 0x08,    4 /* Private */,
 
  // signals: parameters
-    QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
 
@@ -105,11 +100,9 @@ Q_CONSTINIT const QMetaObject LoginScreen::staticMetaObject = { {
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'loginAsProvider'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        // method 'registerClicked'
-        QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'handleLogin'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        // method 'on_registerButton_clicked'
+        // method 'registerClicked'
         QtPrivate::TypeAndForceComplete<void, std::false_type>
     >,
     nullptr
@@ -123,9 +116,8 @@ void LoginScreen::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id,
         switch (_id) {
         case 0: _t->loginAsCustomer(); break;
         case 1: _t->loginAsProvider(); break;
-        case 2: _t->registerClicked(); break;
-        case 3: _t->handleLogin(); break;
-        case 4: _t->on_registerButton_clicked(); break;
+        case 2: _t->handleLogin(); break;
+        case 3: _t->registerClicked(); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -141,13 +133,6 @@ void LoginScreen::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id,
             using _t = void (LoginScreen::*)();
             if (_t _q_method = &LoginScreen::loginAsProvider; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
                 *result = 1;
-                return;
-            }
-        }
-        {
-            using _t = void (LoginScreen::*)();
-            if (_t _q_method = &LoginScreen::registerClicked; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
-                *result = 2;
                 return;
             }
         }
@@ -174,13 +159,13 @@ int LoginScreen::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 5)
+        if (_id < 4)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 5;
+        _id -= 4;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 5)
+        if (_id < 4)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 5;
+        _id -= 4;
     }
     return _id;
 }
@@ -195,12 +180,6 @@ void LoginScreen::loginAsCustomer()
 void LoginScreen::loginAsProvider()
 {
     QMetaObject::activate(this, &staticMetaObject, 1, nullptr);
-}
-
-// SIGNAL 2
-void LoginScreen::registerClicked()
-{
-    QMetaObject::activate(this, &staticMetaObject, 2, nullptr);
 }
 QT_WARNING_POP
 QT_END_MOC_NAMESPACE
