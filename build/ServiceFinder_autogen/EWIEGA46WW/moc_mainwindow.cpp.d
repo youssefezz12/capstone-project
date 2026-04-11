@@ -1,5 +1,9 @@
 /home/sama/Capstone/build/ServiceFinder_autogen/EWIEGA46WW/moc_mainwindow.cpp: /home/sama/Capstone/mainwindow.h \
   /home/sama/Capstone/build/ServiceFinder_autogen/moc_predefs.h \
+  /home/sama/Capstone/Booking.h \
+  /home/sama/Capstone/Provider.h \
+  /home/sama/Capstone/System.h \
+  /home/sama/Capstone/User.h \
   /home/sama/Capstone/loginscreen.h \
   /home/sama/Capstone/usersearch.h \
   /usr/include/alloca.h \
@@ -285,6 +289,7 @@
   /usr/include/x86_64-linux-gnu/c++/13/bits/os_defines.h \
   /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
   /usr/include/x86_64-linux-gnu/gnu/stubs.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtCore/QString \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qalgorithms.h \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qanystringview.h \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qarraydata.h \

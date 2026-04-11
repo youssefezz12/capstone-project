@@ -1,5 +1,7 @@
 /home/sama/Capstone/build/ServiceFinder_autogen/EWIEGA46WW/moc_loginscreen.cpp: /home/sama/Capstone/loginscreen.h \
   /home/sama/Capstone/build/ServiceFinder_autogen/moc_predefs.h \
+  /home/sama/Capstone/Provider.h \
+  /home/sama/Capstone/User.h \
   /home/sama/Capstone/usersearch.h \
   /usr/include/alloca.h \
   /usr/include/asm-generic/errno-base.h \

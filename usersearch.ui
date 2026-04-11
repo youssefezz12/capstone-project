@@ -34,7 +34,7 @@
          </widget>
         </item>
         <item>
-         <widget class="QLineEdit" name="lineEdit">
+         <widget class="QLineEdit" name="categoryLineEdit">
           <property name="text">
            <string>What service do you need?</string>
           </property>
@@ -43,7 +43,7 @@
        </layout>
       </item>
       <item>
-       <widget class="QTableWidget" name="tableWidget">
+       <widget class="QTableWidget" name="searchTable">
         <column>
          <property name="text">
           <string>Name</string>

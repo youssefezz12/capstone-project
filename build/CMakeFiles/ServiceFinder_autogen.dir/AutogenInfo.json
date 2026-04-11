@@ -205,6 +205,25 @@
 	"HEADERS" : 
 	[
 		[
+			"/home/sama/Capstone/Booking.h",
+			"MU",
+			"EWIEGA46WW/moc_Booking.cpp",
+			null
+		],
+		[
+			"/home/sama/Capstone/Provider.h",
+			"MU",
+			"EWIEGA46WW/moc_Provider.cpp",
+			null
+		],
+		[
+			"/home/sama/Capstone/System.h",
+			"MU",
+			"EWIEGA46WW/moc_System.cpp",
+			null
+		],
+		[ "/home/sama/Capstone/User.h", "MU", "EWIEGA46WW/moc_User.cpp", null ],
+		[
 			"/home/sama/Capstone/loginscreen.h",
 			"MU",
 			"EWIEGA46WW/moc_loginscreen.cpp",
@@ -281,6 +300,10 @@
 	"SETTINGS_FILE" : "/home/sama/Capstone/build/CMakeFiles/ServiceFinder_autogen.dir/AutogenUsed.txt",
 	"SOURCES" : 
 	[
+		[ "/home/sama/Capstone/Booking.cpp", "MU", null ],
+		[ "/home/sama/Capstone/Provider.cpp", "MU", null ],
+		[ "/home/sama/Capstone/System.cpp", "MU", null ],
+		[ "/home/sama/Capstone/User.cpp", "MU", null ],
 		[ "/home/sama/Capstone/loginscreen.cpp", "MU", null ],
 		[ "/home/sama/Capstone/main.cpp", "MU", null ],
 		[ "/home/sama/Capstone/mainwindow.cpp", "MU", null ],

@@ -338,6 +338,7 @@ CMakeFiles/ServiceFinder.dir/loginscreen.cpp.o: \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QDialog \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qdialog.h \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qwidget.h \
+ /home/sama/Capstone/Provider.h /home/sama/Capstone/User.h \
  /home/sama/Capstone/build/ServiceFinder_autogen/include/ui_loginscreen.h \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/QVariant \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/qvariant.h \

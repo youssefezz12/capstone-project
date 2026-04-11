@@ -200,6 +200,54 @@ ServiceFinder_autogen/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ServiceFinder_autogen.dir/build.make CMakeFiles/ServiceFinder_autogen.dir/build
 .PHONY : ServiceFinder_autogen/fast
 
+Booking.o: Booking.cpp.o
+.PHONY : Booking.o
+
+# target to build an object file
+Booking.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ServiceFinder.dir/build.make CMakeFiles/ServiceFinder.dir/Booking.cpp.o
+.PHONY : Booking.cpp.o
+
+Booking.i: Booking.cpp.i
+.PHONY : Booking.i
+
+# target to preprocess a source file
+Booking.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ServiceFinder.dir/build.make CMakeFiles/ServiceFinder.dir/Booking.cpp.i
+.PHONY : Booking.cpp.i
+
+Booking.s: Booking.cpp.s
+.PHONY : Booking.s
+
+# target to generate assembly for a file
+Booking.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ServiceFinder.dir/build.make CMakeFiles/ServiceFinder.dir/Booking.cpp.s
+.PHONY : Booking.cpp.s
+
+Provider.o: Provider.cpp.o
+.PHONY : Provider.o
+
+# target to build an object file
+Provider.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ServiceFinder.dir/build.make CMakeFiles/ServiceFinder.dir/Provider.cpp.o
+.PHONY : Provider.cpp.o
+
+Provider.i: Provider.cpp.i
+.PHONY : Provider.i
+
+# target to preprocess a source file
+Provider.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ServiceFinder.dir/build.make CMakeFiles/ServiceFinder.dir/Provider.cpp.i
+.PHONY : Provider.cpp.i
+
+Provider.s: Provider.cpp.s
+.PHONY : Provider.s
+
+# target to generate assembly for a file
+Provider.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ServiceFinder.dir/build.make CMakeFiles/ServiceFinder.dir/Provider.cpp.s
+.PHONY : Provider.cpp.s
+
 ServiceFinder_autogen/mocs_compilation.o: ServiceFinder_autogen/mocs_compilation.cpp.o
 .PHONY : ServiceFinder_autogen/mocs_compilation.o
 
@@ -223,6 +271,54 @@ ServiceFinder_autogen/mocs_compilation.s: ServiceFinder_autogen/mocs_compilation
 ServiceFinder_autogen/mocs_compilation.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ServiceFinder.dir/build.make CMakeFiles/ServiceFinder.dir/ServiceFinder_autogen/mocs_compilation.cpp.s
 .PHONY : ServiceFinder_autogen/mocs_compilation.cpp.s
+
+System.o: System.cpp.o
+.PHONY : System.o
+
+# target to build an object file
+System.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ServiceFinder.dir/build.make CMakeFiles/ServiceFinder.dir/System.cpp.o
+.PHONY : System.cpp.o
+
+System.i: System.cpp.i
+.PHONY : System.i
+
+# target to preprocess a source file
+System.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ServiceFinder.dir/build.make CMakeFiles/ServiceFinder.dir/System.cpp.i
+.PHONY : System.cpp.i
+
+System.s: System.cpp.s
+.PHONY : System.s
+
+# target to generate assembly for a file
+System.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ServiceFinder.dir/build.make CMakeFiles/ServiceFinder.dir/System.cpp.s
+.PHONY : System.cpp.s
+
+User.o: User.cpp.o
+.PHONY : User.o
+
+# target to build an object file
+User.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ServiceFinder.dir/build.make CMakeFiles/ServiceFinder.dir/User.cpp.o
+.PHONY : User.cpp.o
+
+User.i: User.cpp.i
+.PHONY : User.i
+
+# target to preprocess a source file
+User.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ServiceFinder.dir/build.make CMakeFiles/ServiceFinder.dir/User.cpp.i
+.PHONY : User.cpp.i
+
+User.s: User.cpp.s
+.PHONY : User.s
+
+# target to generate assembly for a file
+User.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ServiceFinder.dir/build.make CMakeFiles/ServiceFinder.dir/User.cpp.s
+.PHONY : User.cpp.s
 
 loginscreen.o: loginscreen.cpp.o
 .PHONY : loginscreen.o
@@ -335,9 +431,21 @@ help:
 	@echo "... ServiceFinder_autogen"
 	@echo "... ServiceFinder_autogen_timestamp_deps"
 	@echo "... ServiceFinder"
+	@echo "... Booking.o"
+	@echo "... Booking.i"
+	@echo "... Booking.s"
+	@echo "... Provider.o"
+	@echo "... Provider.i"
+	@echo "... Provider.s"
 	@echo "... ServiceFinder_autogen/mocs_compilation.o"
 	@echo "... ServiceFinder_autogen/mocs_compilation.i"
 	@echo "... ServiceFinder_autogen/mocs_compilation.s"
+	@echo "... System.o"
+	@echo "... System.i"
+	@echo "... System.s"
+	@echo "... User.o"
+	@echo "... User.i"
+	@echo "... User.s"
 	@echo "... loginscreen.o"
 	@echo "... loginscreen.i"
 	@echo "... loginscreen.s"

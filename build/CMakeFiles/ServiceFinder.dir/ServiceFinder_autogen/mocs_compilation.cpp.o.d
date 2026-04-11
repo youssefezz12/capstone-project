@@ -344,11 +344,17 @@ CMakeFiles/ServiceFinder.dir/ServiceFinder_autogen/mocs_compilation.cpp.o: \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QDialog \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qdialog.h \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qwidget.h \
+ /home/sama/Capstone/build/ServiceFinder_autogen/EWIEGA46WW/../../../Provider.h \
+ /home/sama/Capstone/build/ServiceFinder_autogen/EWIEGA46WW/../../../User.h \
  /home/sama/Capstone/build/ServiceFinder_autogen/EWIEGA46WW/moc_mainwindow.cpp \
  /home/sama/Capstone/build/ServiceFinder_autogen/EWIEGA46WW/../../../mainwindow.h \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QMainWindow \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qmainwindow.h \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qtabwidget.h \
+ /home/sama/Capstone/build/ServiceFinder_autogen/EWIEGA46WW/../../../System.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/QString \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qstring.h \
+ /home/sama/Capstone/build/ServiceFinder_autogen/EWIEGA46WW/../../../Booking.h \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QStackedWidget \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qstackedwidget.h \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qframe.h \
