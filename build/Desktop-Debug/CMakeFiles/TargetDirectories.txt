@@ -1,0 +1,9 @@
+/home/green/capstone-project/capstone-project/build/Desktop-Debug/CMakeFiles/ServiceFinder.dir
+/home/green/capstone-project/capstone-project/build/Desktop-Debug/CMakeFiles/edit_cache.dir
+/home/green/capstone-project/capstone-project/build/Desktop-Debug/CMakeFiles/rebuild_cache.dir
+/home/green/capstone-project/capstone-project/build/Desktop-Debug/CMakeFiles/list_install_components.dir
+/home/green/capstone-project/capstone-project/build/Desktop-Debug/CMakeFiles/install.dir
+/home/green/capstone-project/capstone-project/build/Desktop-Debug/CMakeFiles/install/local.dir
+/home/green/capstone-project/capstone-project/build/Desktop-Debug/CMakeFiles/install/strip.dir
+/home/green/capstone-project/capstone-project/build/Desktop-Debug/CMakeFiles/ServiceFinder_autogen_timestamp_deps.dir
+/home/green/capstone-project/capstone-project/build/Desktop-Debug/CMakeFiles/ServiceFinder_autogen.dir

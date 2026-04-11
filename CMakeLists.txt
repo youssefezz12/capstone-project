@@ -27,6 +27,9 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         usersearch.h usersearch.cpp usersearch.ui
         Booking.cpp Booking.h Provider.cpp Provider.h System.cpp System.h
         User.cpp User.h
+        providerdashboard.h providerdashboard.cpp providerdashboard.ui
+
+
     )
 # Define target properties for Android with Qt 6 as:
 #    set_property(TARGET ServiceFinder APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR
