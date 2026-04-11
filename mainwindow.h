@@ -2,8 +2,8 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include "System.h"
 #include <QStackedWidget>
+#include "System.h"
 #include "loginscreen.h"
 #include "usersearch.h"
 
@@ -23,14 +23,16 @@ private slots:
     void showLogin();
     void showCustomerDashboard();
     void showProviderDashboard();
-    void handleSearch(QString);
+    void handleSearch(QString cat);
+    void handleLogin(QString username, QString password);
+    void handleRegister(QString username, QString password);
 
 private:
     Ui::MainWindow *ui;
     QStackedWidget *stackedWidget;
     LoginScreen *loginScreen;
     UserSearch *usersearch;
-    System* system;
+    System* sys;
 };
 
 #endif

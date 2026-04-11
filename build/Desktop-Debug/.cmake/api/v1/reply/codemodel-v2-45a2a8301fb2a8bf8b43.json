@@ -1,0 +1,79 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-Debug-1afbd547e6ab8ec2b23c.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "ServiceFinder",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "ServiceFinder::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ServiceFinder-Debug-3a159d925e79e78d041b.json",
+					"name" : "ServiceFinder",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ServiceFinder_autogen::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ServiceFinder_autogen-Debug-8a6af73fbe117d43cc82.json",
+					"name" : "ServiceFinder_autogen",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ServiceFinder_autogen_timestamp_deps::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ServiceFinder_autogen_timestamp_deps-Debug-e8af1946b000100f85e7.json",
+					"name" : "ServiceFinder_autogen_timestamp_deps",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/hassaan/Project/Capstone-project/build/Desktop-Debug",
+		"source" : "/home/hassaan/Project/Capstone-project"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 7
+	}
+}

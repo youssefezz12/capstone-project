@@ -1,4 +1,4 @@
-#ifndef LOGINSCREEN_H
+ #ifndef LOGINSCREEN_H
 #define LOGINSCREEN_H
 
 #include <QWidget>
@@ -15,12 +15,12 @@ public:
     ~LoginScreen();
 
 signals:
-    void loginAsCustomer();
-    void loginAsProvider();
+    void loginAttempt(QString username, QString password);
+    void registerAttempt(QString username, QString password);
 
 private slots:
-    void handleLogin();
-    void registerClicked();
+    void on_loginButton_clicked();
+    void on_registerButton_clicked();
 
 private:
     Ui::LoginScreen *ui;

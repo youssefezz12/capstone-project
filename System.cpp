@@ -1,14 +1,24 @@
 #include "System.h"
 #include <QDebug>
+#include <fstream>
 
 System::System()
 {
     providers.clear();
     users.clear();
     bookings.clear();
-}
-void System::registerUser(std::string username, std::string password) {
-    users.push_back(User(username, password));
+
+
+    std::ifstream file("users.txt");
+    std::string line;
+    while (std::getline(file, line)) {
+        size_t comma = line.find(',');
+        if (comma != std::string::npos) {
+            std::string username = line.substr(0, comma);
+            std::string password = line.substr(comma + 1);
+            users.push_back(User(username, password));
+        }
+    }
 }
 
 bool System::login(std::string username, std::string password) {
@@ -46,6 +56,14 @@ std::vector<Booking> System::getBookings() const {
     return bookings;
 }
 
+void System::registerUser(std::string username, std::string password)
+{
+    users.push_back(User(username, password));
+
+    std::ofstream file("users.txt", std::ios::app);
+    file << username << "," << password << "\n";
+}
+
 System::~System()
 {
     providers.clear();
@@ -53,9 +71,5 @@ System::~System()
 
 std::vector<Provider> System::getProviders()
 {
-    // for(const auto& p: providers)
-    // {
-    //     qDebug() << QString::fromStdString(p.getUserName()) << Qt::endl;
-    // }
     return providers;
 }

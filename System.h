@@ -20,7 +20,7 @@ public:
     bool login(std::string username, std::string password);
 
     void addProvider(const Provider& provider);
-    std::vector<Provider> filterByCategory(string category);
+    std::vector<Provider> filterByCategory(std::string category);
 
     bool bookService(std::string user, std::string provider, std::string date);
 

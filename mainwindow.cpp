@@ -1,12 +1,11 @@
 #include "mainwindow.h"
-#include "System.h"
 #include "ui_mainwindow.h"
-#include <QDebug>
-#include <QString>
+#include <QMessageBox>
 
 MainWindow::MainWindow(System *system)
     : QMainWindow(nullptr)
-    , ui(new Ui::MainWindow), system(system)
+    , ui(new Ui::MainWindow)
+    , sys(system)
 {
     ui->setupUi(this);
 
@@ -15,33 +14,61 @@ MainWindow::MainWindow(System *system)
 
     loginScreen = new LoginScreen(this);
     usersearch = new UserSearch(this);
+
     stackedWidget->addWidget(loginScreen);
     stackedWidget->addWidget(usersearch);
 
-    // Connect login signals
-    connect(loginScreen, &LoginScreen::loginAsCustomer, this, &MainWindow::showCustomerDashboard);
-    connect(loginScreen, &LoginScreen::loginAsProvider, this, &MainWindow::showProviderDashboard);
+    connect(loginScreen, &LoginScreen::loginAttempt,
+            this, &MainWindow::handleLogin);
 
-    connect(usersearch, &UserSearch::searchButtonClicked, this, &MainWindow::handleSearch);
+    connect(loginScreen, &LoginScreen::registerAttempt,
+            this, &MainWindow::handleRegister);
 
+    connect(usersearch, &UserSearch::searchButtonClicked,
+            this, &MainWindow::handleSearch);
+
+    showLogin();
 }
+
 MainWindow::~MainWindow()
 {
-    delete ui;}
+    delete ui;
+}
 
 void MainWindow::showLogin()
 {
     stackedWidget->setCurrentWidget(loginScreen);
 }
+
 void MainWindow::showCustomerDashboard()
 {
     stackedWidget->setCurrentWidget(usersearch);
 }
+
+void MainWindow::showProviderDashboard()
+{
+}
+
+void MainWindow::handleLogin(QString username, QString password)
+{
+    if (sys->login(username.toStdString(), password.toStdString())) {
+        qDebug() << "Login success";
+        showCustomerDashboard();
+    } else {
+        qDebug() << "Login failed";
+    }
+}
+
+void MainWindow::handleRegister(QString username, QString password)
+{
+    sys->registerUser(username.toStdString(), password.toStdString());
+    QMessageBox::information(this, "Registration Successful", "User registered successfully!");
+    qDebug() << "User registered";
+    showCustomerDashboard();
+}
+
 void MainWindow::handleSearch(QString cat)
 {
-    auto searchResult = system->filterByCategory(cat.toStdString());
-    usersearch->editSearchTable(searchResult);
-
+    auto result = sys->filterByCategory(cat.toStdString());
+    usersearch->editSearchTable(result);
 }
-void MainWindow::showProviderDashboard()
-{}
