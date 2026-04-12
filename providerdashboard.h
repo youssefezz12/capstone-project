@@ -14,14 +14,14 @@ class ProviderDashboard : public QWidget
     Q_OBJECT
 
 public:
-    explicit ProviderDashboard(System* sys, Provider provider, QWidget *parent = nullptr);
+   explicit ProviderDashboard(QWidget *parent = nullptr);
     ~ProviderDashboard();
 
 private:
     Ui::ProviderDashboard *ui;
 
     System* system;
-    Provider currentProvider;
+    Provider* currentProvider;
 
     void loadData();
 };
