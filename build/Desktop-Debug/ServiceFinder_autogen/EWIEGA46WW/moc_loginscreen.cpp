@@ -26,31 +26,37 @@ QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 namespace {
 struct qt_meta_stringdata_LoginScreen_t {
-    uint offsetsAndSizes[12];
+    uint offsetsAndSizes[16];
     char stringdata0[12];
-    char stringdata1[16];
+    char stringdata1[13];
     char stringdata2[1];
-    char stringdata3[16];
-    char stringdata4[12];
+    char stringdata3[9];
+    char stringdata4[9];
     char stringdata5[16];
+    char stringdata6[23];
+    char stringdata7[26];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(sizeof(qt_meta_stringdata_LoginScreen_t::offsetsAndSizes) + ofs), len 
 Q_CONSTINIT static const qt_meta_stringdata_LoginScreen_t qt_meta_stringdata_LoginScreen = {
     {
         QT_MOC_LITERAL(0, 11),  // "LoginScreen"
-        QT_MOC_LITERAL(12, 15),  // "loginAsCustomer"
-        QT_MOC_LITERAL(28, 0),  // ""
-        QT_MOC_LITERAL(29, 15),  // "loginAsProvider"
-        QT_MOC_LITERAL(45, 11),  // "handleLogin"
-        QT_MOC_LITERAL(57, 15)   // "registerClicked"
+        QT_MOC_LITERAL(12, 12),  // "loginAttempt"
+        QT_MOC_LITERAL(25, 0),  // ""
+        QT_MOC_LITERAL(26, 8),  // "username"
+        QT_MOC_LITERAL(35, 8),  // "password"
+        QT_MOC_LITERAL(44, 15),  // "registerAttempt"
+        QT_MOC_LITERAL(60, 22),  // "on_loginButton_clicked"
+        QT_MOC_LITERAL(83, 25)   // "on_registerButton_clicked"
     },
     "LoginScreen",
-    "loginAsCustomer",
+    "loginAttempt",
     "",
-    "loginAsProvider",
-    "handleLogin",
-    "registerClicked"
+    "username",
+    "password",
+    "registerAttempt",
+    "on_loginButton_clicked",
+    "on_registerButton_clicked"
 };
 #undef QT_MOC_LITERAL
 } // unnamed namespace
@@ -69,16 +75,16 @@ Q_CONSTINIT static const uint qt_meta_data_LoginScreen[] = {
        2,       // signalCount
 
  // signals: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    0,   38,    2, 0x06,    1 /* Public */,
-       3,    0,   39,    2, 0x06,    2 /* Public */,
+       1,    2,   38,    2, 0x06,    1 /* Public */,
+       5,    2,   43,    2, 0x06,    4 /* Public */,
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       4,    0,   40,    2, 0x08,    3 /* Private */,
-       5,    0,   41,    2, 0x08,    4 /* Private */,
+       6,    0,   48,    2, 0x08,    7 /* Private */,
+       7,    0,   49,    2, 0x08,    8 /* Private */,
 
  // signals: parameters
-    QMetaType::Void,
-    QMetaType::Void,
+    QMetaType::Void, QMetaType::QString, QMetaType::QString,    3,    4,
+    QMetaType::Void, QMetaType::QString, QMetaType::QString,    3,    4,
 
  // slots: parameters
     QMetaType::Void,
@@ -96,13 +102,17 @@ Q_CONSTINIT const QMetaObject LoginScreen::staticMetaObject = { {
     qt_incomplete_metaTypeArray<qt_meta_stringdata_LoginScreen_t,
         // Q_OBJECT / Q_GADGET
         QtPrivate::TypeAndForceComplete<LoginScreen, std::true_type>,
-        // method 'loginAsCustomer'
+        // method 'loginAttempt'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        // method 'loginAsProvider'
+        QtPrivate::TypeAndForceComplete<QString, std::false_type>,
+        QtPrivate::TypeAndForceComplete<QString, std::false_type>,
+        // method 'registerAttempt'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        // method 'handleLogin'
+        QtPrivate::TypeAndForceComplete<QString, std::false_type>,
+        QtPrivate::TypeAndForceComplete<QString, std::false_type>,
+        // method 'on_loginButton_clicked'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        // method 'registerClicked'
+        // method 'on_registerButton_clicked'
         QtPrivate::TypeAndForceComplete<void, std::false_type>
     >,
     nullptr
@@ -114,30 +124,29 @@ void LoginScreen::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id,
         auto *_t = static_cast<LoginScreen *>(_o);
         (void)_t;
         switch (_id) {
-        case 0: _t->loginAsCustomer(); break;
-        case 1: _t->loginAsProvider(); break;
-        case 2: _t->handleLogin(); break;
-        case 3: _t->registerClicked(); break;
+        case 0: _t->loginAttempt((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[2]))); break;
+        case 1: _t->registerAttempt((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[2]))); break;
+        case 2: _t->on_loginButton_clicked(); break;
+        case 3: _t->on_registerButton_clicked(); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
         int *result = reinterpret_cast<int *>(_a[0]);
         {
-            using _t = void (LoginScreen::*)();
-            if (_t _q_method = &LoginScreen::loginAsCustomer; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
+            using _t = void (LoginScreen::*)(QString , QString );
+            if (_t _q_method = &LoginScreen::loginAttempt; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
                 *result = 0;
                 return;
             }
         }
         {
-            using _t = void (LoginScreen::*)();
-            if (_t _q_method = &LoginScreen::loginAsProvider; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
+            using _t = void (LoginScreen::*)(QString , QString );
+            if (_t _q_method = &LoginScreen::registerAttempt; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
                 *result = 1;
                 return;
             }
         }
     }
-    (void)_a;
 }
 
 const QMetaObject *LoginScreen::metaObject() const
@@ -171,15 +180,17 @@ int LoginScreen::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 }
 
 // SIGNAL 0
-void LoginScreen::loginAsCustomer()
+void LoginScreen::loginAttempt(QString _t1, QString _t2)
 {
-    QMetaObject::activate(this, &staticMetaObject, 0, nullptr);
+    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))), const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t2))) };
+    QMetaObject::activate(this, &staticMetaObject, 0, _a);
 }
 
 // SIGNAL 1
-void LoginScreen::loginAsProvider()
+void LoginScreen::registerAttempt(QString _t1, QString _t2)
 {
-    QMetaObject::activate(this, &staticMetaObject, 1, nullptr);
+    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))), const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t2))) };
+    QMetaObject::activate(this, &staticMetaObject, 1, _a);
 }
 QT_WARNING_POP
 QT_END_MOC_NAMESPACE
