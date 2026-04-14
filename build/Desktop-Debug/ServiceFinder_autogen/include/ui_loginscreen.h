@@ -78,14 +78,14 @@ public:
         label_3->setGeometry(QRect(30, 170, 66, 18));
         lineEdit_2 = new QLineEdit(widget_2);
         lineEdit_2->setObjectName("lineEdit_2");
-        lineEdit_2->setGeometry(QRect(30, 200, 113, 26));
+        lineEdit_2->setGeometry(QRect(30, 200, 241, 26));
         lineEdit_3 = new QLineEdit(widget_2);
         lineEdit_3->setObjectName("lineEdit_3");
         lineEdit_3->setGeometry(QRect(30, 200, 241, 26));
         lineEdit_3->setStyleSheet(QString::fromUtf8("QWidget{\n"
 "background-color: #e8f4fd;\n"
 "}"));
-        lineEdit_3->setEchoMode(QLineEdit::Normal);
+        lineEdit_3->setEchoMode(QLineEdit::EchoMode::Password);
         label_4 = new QLabel(widget_2);
         label_4->setObjectName("label_4");
         label_4->setGeometry(QRect(20, 250, 66, 18));
