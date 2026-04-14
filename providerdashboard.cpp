@@ -1,11 +1,9 @@
 #include "providerdashboard.h"
 #include "ui_providerdashboard.h"
 
-ProviderDashboard::ProviderDashboard(System* sys, Provider provider, QWidget *parent)
+ProviderDashboard::ProviderDashboard(QWidget *parent)
     : QWidget(parent)
     , ui(new Ui::ProviderDashboard)
-    , system(sys)
-    , currentProvider(provider)
 {
     ui->setupUi(this);
 
@@ -88,7 +86,7 @@ void ProviderDashboard::loadData()
 
     for (const auto& b : bookings)
     {
-        if (b.getProvider() == currentProvider.getUserName())
+        if (b.getProvider() == currentProvider->getUserName())
         {
             QString item = QString::fromStdString(
                 b.getUser() + " - " + b.getDate()

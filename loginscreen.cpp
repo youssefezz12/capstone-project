@@ -15,16 +15,22 @@ LoginScreen::~LoginScreen()
 
 void LoginScreen::on_loginButton_clicked()
 {
+    bool isProvider = ui->providerRadio->isChecked();
+
     emit loginAttempt(
         ui->lineEdit->text(),
-        ui->lineEdit_2->text()
+        ui->lineEdit_2->text(),
+        isProvider
         );
 }
 
 void LoginScreen::on_registerButton_clicked()
 {
+    bool isProvider = ui->providerRadio->isChecked();
+
     emit registerAttempt(
         ui->lineEdit->text(),
-        ui->lineEdit_2->text()
+        ui->lineEdit_2->text(),
+        isProvider
         );
 }

@@ -14,9 +14,11 @@ MainWindow::MainWindow(System *system)
 
     loginScreen = new LoginScreen(this);
     usersearch = new UserSearch(this);
+    providerDashboard = new ProviderDashboard(this);
 
     stackedWidget->addWidget(loginScreen);
     stackedWidget->addWidget(usersearch);
+    stackedWidget->addWidget(providerDashboard);
 
     connect(loginScreen, &LoginScreen::loginAttempt,
             this, &MainWindow::handleLogin);
@@ -47,24 +49,30 @@ void MainWindow::showCustomerDashboard()
 
 void MainWindow::showProviderDashboard()
 {
+    stackedWidget->setCurrentWidget(providerDashboard);
 }
 
-void MainWindow::handleLogin(QString username, QString password)
+void MainWindow::handleLogin(QString username, QString password, bool isProvider)
 {
     if (sys->login(username.toStdString(), password.toStdString())) {
-        qDebug() << "Login success";
-        showCustomerDashboard();
-    } else {
-        qDebug() << "Login failed";
+
+        if (isProvider) {
+            showProviderDashboard();
+        } else {
+            showCustomerDashboard();
+        }
     }
 }
 
-void MainWindow::handleRegister(QString username, QString password)
+void MainWindow::handleRegister(QString username, QString password, bool isProvider)
 {
     sys->registerUser(username.toStdString(), password.toStdString());
-    QMessageBox::information(this, "Registration Successful", "User registered successfully!");
-    qDebug() << "User registered";
-    showCustomerDashboard();
+
+    if (isProvider) {
+        showProviderDashboard();
+    } else {
+        showCustomerDashboard();
+    }
 }
 
 void MainWindow::handleSearch(QString cat)

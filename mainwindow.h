@@ -6,6 +6,7 @@
 #include "System.h"
 #include "loginscreen.h"
 #include "usersearch.h"
+#include "providerdashboard.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -24,8 +25,8 @@ private slots:
     void showCustomerDashboard();
     void showProviderDashboard();
     void handleSearch(QString cat);
-    void handleLogin(QString username, QString password);
-    void handleRegister(QString username, QString password);
+    void handleLogin(QString username, QString password, bool isProvider);
+    void handleRegister(QString username, QString password, bool isProvider);
 
 private:
     Ui::MainWindow *ui;
@@ -33,6 +34,7 @@ private:
     LoginScreen *loginScreen;
     UserSearch *usersearch;
     System* sys;
+    ProviderDashboard *providerDashboard;
 };
 
 #endif
