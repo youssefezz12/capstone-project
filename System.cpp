@@ -1,6 +1,8 @@
 #include "System.h"
 #include <QDebug>
 #include <fstream>
+#include <sstream>
+
 
 System::System()
 {
@@ -19,6 +21,24 @@ System::System()
             users.push_back(User(username, password));
         }
     }
+    std::ifstream pfile("providers.txt");
+
+    while (std::getline(pfile, line)) {
+        std::stringstream ss(line);
+        std::string username, password, category, priceStr, availableStr;
+
+        getline(ss, username, ',');
+        getline(ss, password, ',');
+        getline(ss, category, ',');
+        getline(ss, priceStr, ',');
+        getline(ss, availableStr, ',');
+
+        double price = std::stod(priceStr);
+        bool available = std::stoi(availableStr);
+
+        Provider p(username, password, category, price);
+        providers.push_back(p);
+    }
 }
 
 bool System::login(std::string username, std::string password) {
@@ -32,8 +52,14 @@ bool System::login(std::string username, std::string password) {
 
 void System::addProvider(const Provider& provider) {
     providers.push_back(provider);
+    std::ofstream file("providers.txt", std::ios::app);
+    file << provider.getUserName() << ","
+         << provider.getPassword() << ","
+         << provider.getCategory() << ","
+         << provider.getPrice() << ","
+         << provider.isAvailable()
+         << "\n";
 }
-
 std::vector<Provider> System::filterByCategory(string category) {
     std::vector<Provider> result;
 
@@ -64,12 +90,13 @@ void System::registerUser(std::string username, std::string password)
     file << username << "," << password << "\n";
 }
 
+std::vector<Provider> System::getProviders()
+{
+    return providers;
+}
 System::~System()
 {
     providers.clear();
 }
 
-std::vector<Provider> System::getProviders()
-{
-    return providers;
-}
+

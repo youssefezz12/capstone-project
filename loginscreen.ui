@@ -16,6 +16,9 @@
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
     <widget class="QWidget" name="widget" native="true">
+     <property name="layoutDirection">
+      <enum>Qt::LayoutDirection::LeftToRight</enum>
+     </property>
      <property name="styleSheet">
       <string notr="true">QWidget {
 background-color: #e8f4fd;
@@ -29,6 +32,9 @@ background-color: #e8f4fd;
         <width>371</width>
         <height>391</height>
        </rect>
+      </property>
+      <property name="layoutDirection">
+       <enum>Qt::LayoutDirection::LeftToRight</enum>
       </property>
       <property name="styleSheet">
        <string notr="true">QWidget{

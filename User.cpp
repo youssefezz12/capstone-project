@@ -15,6 +15,9 @@ string User::getUserName() const
 {
     return username;
 }
+string User::getPassword() const {
+    return password;
+}
 
 bool User::checkPassword(string p) const
 {

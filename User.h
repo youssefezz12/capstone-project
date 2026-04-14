@@ -16,6 +16,7 @@ class User
     string getUserName() const;
     bool checkPassword(string password) const;
     int getUserId() const;
+    string getPassword() const;
 };
 
 
