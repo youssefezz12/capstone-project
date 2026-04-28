@@ -1,0 +1,6 @@
+Name,pass,Cooking,50,1
+Name,pass,Cooking,100,1
+Name,pass,Cooking,200,1
+Name,pass,Cooking,50,1
+Name,pass,Cooking,100,1
+Name,pass,Cooking,200,1

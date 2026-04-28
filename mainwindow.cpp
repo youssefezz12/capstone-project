@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include <QDebug>
 #include <QMessageBox>
 
 MainWindow::MainWindow(System *system)
@@ -54,7 +55,8 @@ void MainWindow::showProviderDashboard()
 
 void MainWindow::handleLogin(QString username, QString password, bool isProvider)
 {
-    if (sys->login(username.toStdString(), password.toStdString())) {
+    qDebug() << "The entered pass is "<< password;
+    if (sys->login(username, password)) {
 
         if (isProvider) {
             showProviderDashboard();
@@ -62,11 +64,13 @@ void MainWindow::handleLogin(QString username, QString password, bool isProvider
             showCustomerDashboard();
         }
     }
+    else
+        QMessageBox::warning(this, "Login failed", "Invalid Username or password");
 }
 
 void MainWindow::handleRegister(QString username, QString password, bool isProvider)
 {
-    sys->registerUser(username.toStdString(), password.toStdString());
+    sys->registerUser(username, password);
 
     if (isProvider) {
         showProviderDashboard();
@@ -77,6 +81,6 @@ void MainWindow::handleRegister(QString username, QString password, bool isProvi
 
 void MainWindow::handleSearch(QString cat)
 {
-    auto result = sys->filterByCategory(cat.toStdString());
+    auto result = sys->filterByCategory(cat);
     usersearch->editSearchTable(result);
 }

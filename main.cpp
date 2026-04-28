@@ -2,6 +2,7 @@
 #include "System.h"
 #include "Provider.h"
 #include <QApplication>
+#include <QtSql>
 #include <QDebug>
 
 int main(int argc, char *argv[])

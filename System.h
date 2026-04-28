@@ -7,22 +7,24 @@
 #include "User.h"
 #include "Provider.h"
 #include "Booking.h"
+#include "Databasemanager.h"
 
 class System {
 private:
     std::vector<User> users;
     std::vector<Provider> providers;
     std::vector<Booking> bookings;
+    DatabaseManager *db;
 
 public:
     System();
-    void registerUser(std::string username, std::string password);
-    bool login(std::string username, std::string password);
+    void registerUser(QString username, QString password);
+    bool login(QString username, QString password);
 
     void addProvider(const Provider& provider);
-    std::vector<Provider> filterByCategory(std::string category);
+    std::vector<Provider> filterByCategory(QString category);
 
-    bool bookService(std::string user, std::string provider, std::string date);
+    bool bookService(User user, Provider provider, QString date);
 
     std::vector<Booking> getBookings() const;
     std::vector<Provider> getProviders();

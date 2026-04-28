@@ -19,7 +19,7 @@ void LoginScreen::on_loginButton_clicked()
 
     emit loginAttempt(
         ui->lineEdit->text(),
-        ui->lineEdit_2->text(),
+        ui->lineEdit_3->text(),
         isProvider
         );
 }
@@ -30,7 +30,7 @@ void LoginScreen::on_registerButton_clicked()
 
     emit registerAttempt(
         ui->lineEdit->text(),
-        ui->lineEdit_2->text(),
+        ui->lineEdit_3->text(),
         isProvider
         );
 }
