@@ -7,6 +7,10 @@
 #include "loginscreen.h"
 #include "usersearch.h"
 #include "providerdashboard.h"
+#include <QTcpSocket>
+#include <QJsonObject>
+#include <QJsonDocument>
+
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -27,6 +31,7 @@ private slots:
     void handleSearch(QString cat);
     void handleLogin(QString username, QString password, bool isProvider);
     void handleRegister(QString username, QString password, bool isProvider);
+    void on_readReady();
 
 private:
     Ui::MainWindow *ui;
@@ -35,6 +40,8 @@ private:
     UserSearch *usersearch;
     System* sys;
     ProviderDashboard *providerDashboard;
+    QTcpSocket *socket;
+    bool isProvider;
 };
 
 #endif

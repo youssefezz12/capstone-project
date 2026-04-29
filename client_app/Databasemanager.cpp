@@ -6,12 +6,12 @@
 DatabaseManager::DatabaseManager() {
 
     db = QSqlDatabase::addDatabase("QSQLITE");
-    db.setDatabaseName("service_finder.db");
+    db.setDatabaseName("/home/sama/Capstone/service_finder.db");
 
     if (!db.open()) {
         qDebug() << "Error: Connection with database failed:" << db.lastError().text();
     } else {
-        qDebug() << "Database connected to:" << dbPath;
+        qDebug() << "Database connected to:" << QDir::currentPath;
 
         QSqlQuery query;
 
@@ -56,6 +56,18 @@ bool DatabaseManager::verifyUser(QString name, QString pass) {
     if (query.exec() && query.next()) {
         return true; // Match found
     }
+    return false;
+}
+
+bool DatabaseManager::verifyProvider(QString name, QString pass)
+{
+    QSqlQuery query;
+    query.prepare("SELECT * FROM Providers WHERE username = :user AND password = :pass");
+    query.bindValue(":user", name);
+    query.bindValue(":pass", pass);
+
+    if(query.exec() && query.next())
+        return true;
     return false;
 }
 
@@ -112,5 +124,6 @@ void DatabaseManager::saveBooking(User u, Provider p, QString date) {
 
 vector<Booking> DatabaseManager::getBooking()
 {
-
+    vector<Booking> result;
+    return result;
 }

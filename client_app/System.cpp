@@ -19,11 +19,17 @@ bool System::login(QString username, QString password) {
         return true;
     return false;
 }
-
+bool System::loginProvider(QString name, QString password)
+{
+    if(db->verifyProvider(name, password))
+        return true;
+    return false;
+}
 void System::addProvider(const Provider& provider) {
 
     db->addProvider(provider);
 }
+
 std::vector<Provider> System::filterByCategory(QString category) {
     std::vector<Provider> result;
 

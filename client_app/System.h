@@ -20,6 +20,7 @@ public:
     System();
     void registerUser(QString username, QString password);
     bool login(QString username, QString password);
+    bool loginProvider(QString name, QString password);
 
     void addProvider(const Provider& provider);
     std::vector<Provider> filterByCategory(QString category);

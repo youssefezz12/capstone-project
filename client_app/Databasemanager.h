@@ -17,6 +17,7 @@ public:
     DatabaseManager();
     void registerUser(QString username, QString pass);
     bool verifyUser(QString name, QString pass);
+    bool verifyProvider(QString name, QString pass);
     void addProvider(Provider p);
     vector<Provider> getProviders(QString cat);
     void saveBooking(User u, Provider p, QString date);
