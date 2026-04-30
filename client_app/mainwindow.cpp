@@ -106,17 +106,20 @@ void MainWindow::on_readReady()
 
     qDebug() << response;
 
-    if(status == "success")
+    if(status == "success" && (cmd == "login" || cmd == "loginProvider" || cmd == "addUser" || cmd == "addProvider"))
     {
         qDebug() << "Success for command:" << cmd << "Message:" << message;
-
-        if(cmd == "login" || cmd == "loginProvider" || cmd == "addUser" || cmd == "addProvider")
-        {
             if(isProvider)
                 showProviderDashboard();
             else
                 showCustomerDashboard();
-        }
+    }
+    else if(status == "success" && cmd == "filterByCategory")
+    {
+        QJsonArray results = response["results"].toArray();
+
+        usersearch->editSearchTable(results);
+
     }
     else
         QMessageBox::warning(this, "Login Failed", message);
@@ -144,6 +147,11 @@ void MainWindow::handleRegister(QString username, QString password, bool isProvi
 
 void MainWindow::handleSearch(QString cat)
 {
-    auto result = sys->filterByCategory(cat);
-    usersearch->editSearchTable(result);
+    QJsonObject request;
+    request["category"] = cat;
+    request["command"] = "filterByCategory";
+
+    QJsonDocument doc(request);
+    socket->write(doc.toJson(QJsonDocument::Compact));
+
 }

@@ -8,7 +8,7 @@ UserSearch::UserSearch(QWidget *parent)
     , ui(new Ui::UserSearch)
 {
     ui->setupUi(this);
-    //connect(search_button, &on_search_button::clicked, this, &MainWindow::showCustomerDashboard);
+    ui->searchTable->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
 }
 
 UserSearch::~UserSearch()
@@ -25,13 +25,16 @@ void UserSearch::on_search_button_clicked()
     emit searchButtonClicked(text);
 }
 
-void UserSearch::editSearchTable(std::vector<Provider> searchResult)
+void UserSearch::editSearchTable(const QJsonArray &searchResult)
 {
     ui->searchTable->setRowCount(searchResult.size());
+
     for(int i=0; i<searchResult.size(); i++)
-    {   ui->searchTable->setItem(i,0, new QTableWidgetItem(QString::fromStdString(searchResult[i].getUserName())));
-        ui->searchTable->setItem(i,1, new QTableWidgetItem(QString::fromStdString(searchResult[i].getCategory())));
-        ui->searchTable->setItem(i, 2, new QTableWidgetItem(QString::number(searchResult[i].getPrice(), 'f', 2)));
+    {
+        QJsonObject object = searchResult[i].toObject();
+        ui->searchTable->setItem(i,0, new QTableWidgetItem(object["name"].toString()));
+        ui->searchTable->setItem(i,1, new QTableWidgetItem(object["category"].toString()));
+        ui->searchTable->setItem(i, 2, new QTableWidgetItem(QString::number(object["price"].toDouble(), 'f', 2)));
     }
 }
 

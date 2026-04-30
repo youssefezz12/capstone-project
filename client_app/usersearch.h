@@ -15,7 +15,7 @@ class UserSearch : public QDialog
 
 public:
     explicit UserSearch(QWidget *parent = nullptr);
-    void editSearchTable(std::vector<Provider>);
+    void editSearchTable(const QJsonArray&);
     ~UserSearch();
 
 signals:

@@ -15,6 +15,8 @@ private:
     static json::object addProvider( json::value& request, std::shared_ptr<System> system);
     static json::object loginProvider(json::value& request, std::shared_ptr<System> system);
     static json::object addUser(json::value& request, std::shared_ptr<System> system);
+    static json::object handleSearch(json::value& request, std::shared_ptr<System> system);
+
 };
 
 #endif // JSONHANDLER_H

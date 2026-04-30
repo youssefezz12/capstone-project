@@ -1,4 +1,5 @@
 #include "Jsonhandler.h"
+#include "Provider.h"
 
 json::object JsonHandler::processRequest( json::value& request, std::shared_ptr<System> system)
 {
@@ -21,6 +22,8 @@ json::object JsonHandler::processRequest( json::value& request, std::shared_ptr<
     {
 	return addUser(request, system);
     }
+    else if(command == "filterByCategory")
+        return handleSearch(request, system);
     else
     {
         json::object response;
@@ -102,4 +105,32 @@ json::object JsonHandler::addUser(json::value& request, std::shared_ptr<System> 
         response["message"] = name + " signed in as user successfully.";
 	response["command"] = "addUser";
 	return response;
+}
+
+json::object JsonHandler::handleSearch(json::value& request, std::shared_ptr<System> system)
+{
+    json::object response;
+
+    QString category = QString::fromStdString(request.as_object()["category"].as_string().c_str());
+
+    auto providers = system->filterByCategory(category);
+
+
+    json::array results;
+
+
+        for(const auto& p: providers)
+        {
+        json::object provider;
+            provider["name"] = p.getUserName();
+        provider["category"] = p.getCategory();
+            provider["price"] = p.getPrice();
+            results.push_back(provider);
+        }
+
+    response["status"] = "success";
+    response["command"] = "filterByCategory";
+    response["results"] = results;
+
+    return response;
 }
