@@ -40,7 +40,29 @@ std::vector<Provider> System::filterByCategory(QString category) {
 
 bool System::bookService(User user, Provider provider, QString date) {
     db->saveBooking(user, provider, date);
+    bookingVersion++;
+
+    notifier.addNotification(
+        provider.getUserName(),
+        "New booking from " + user.getUserName()
+    );
+
+    notifier.addNotification(
+        user.getUserName(),
+        "Booking confirmed with " + provider.getUserName()
+    );
+
     return true;
+}
+
+std::vector<std::string> System::getUserNotifications(QString username)
+{
+    return notifier.getNotifications(username.toStdString());
+}
+
+int System::getVersion() const
+{
+    return bookingVersion;
 }
 
 std::vector<Booking> System::getBookings() const {

@@ -6,7 +6,7 @@
 DatabaseManager::DatabaseManager() {
 
     db = QSqlDatabase::addDatabase("QSQLITE");
-    db.setDatabaseName("/home/sama/Capstone/service_finder.db");
+    db.setDatabaseName("/home/hassaan/Project/Capstone-project/ServiceFinder_Server/servicefinder.db");
 
     if (!db.open()) {
         qDebug() << "Error: Connection with database failed:" << db.lastError().text();
@@ -125,5 +125,19 @@ void DatabaseManager::saveBooking(User u, Provider p, QString date) {
 vector<Booking> DatabaseManager::getBooking()
 {
     vector<Booking> result;
+
+    QSqlQuery query("SELECT * FROM Bookings");
+
+    while(query.next())
+    {
+        result.push_back(
+            Booking(
+                query.value("customer_user").toString().toStdString(),
+                query.value("provider_user").toString().toStdString(),
+                query.value("booking_date").toString().toStdString()
+            )
+        );
+    }
+
     return result;
 }

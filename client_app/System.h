@@ -1,6 +1,6 @@
 #ifndef SYSTEM_H
 #define SYSTEM_H
-
+#include "Notifications.h"
 #include <vector>
 #include <string>
 #include <QString>
@@ -15,6 +15,8 @@ private:
     std::vector<Provider> providers;
     std::vector<Booking> bookings;
     DatabaseManager *db;
+    Notifications notifier;
+    int bookingVersion = 0;
 
 public:
     System();
@@ -26,7 +28,8 @@ public:
     std::vector<Provider> filterByCategory(QString category);
 
     bool bookService(User user, Provider provider, QString date);
-
+    std::vector<std::string> getUserNotifications(QString username);
+    int getVersion() const;
     std::vector<Booking> getBookings() const;
     std::vector<Provider> getProviders();
     ~System();
