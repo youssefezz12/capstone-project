@@ -1,4 +1,4 @@
-#include "Notifications.h"
+#include "notifications.h"
 
 void NotificationManager::addNotification(std::string user, std::string msg)
 {
