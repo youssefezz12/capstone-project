@@ -11,7 +11,7 @@
 
 class System {
 private:
-    std::vector<User> users;
+    std::vector<User>     users;
     std::vector<Provider> providers;
     std::vector<Booking> bookings;
     DatabaseManager *db;
@@ -20,19 +20,23 @@ private:
 
 public:
     System();
+    ~System();
+
     void registerUser(QString username, QString password);
     bool login(QString username, QString password);
     bool loginProvider(QString name, QString password);
 
     void addProvider(const Provider& provider);
-    std::vector<Provider> filterByCategory(QString category);
 
+    std::vector<Provider> filterByCategory(QString category);
     bool bookService(User user, Provider provider, QString date);
     std::vector<std::string> getUserNotifications(QString username);
     int getVersion() const;
     std::vector<Booking> getBookings() const;
     std::vector<Provider> getProviders();
-    ~System();
+
+    // Convenience: find one provider by name via DB
+    Provider* findProviderByName(const QString& name);
 };
 
 #endif

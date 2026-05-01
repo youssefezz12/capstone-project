@@ -2,6 +2,7 @@
 #include <QDebug>
 #include <fstream>
 #include <sstream>
+#include <string>
 
 
 System::System()
@@ -9,49 +10,55 @@ System::System()
     providers.clear();
     users.clear();
     bookings.clear();
-
     db = new DatabaseManager();
 }
 
-bool System::login(QString username, QString password) {
-
-    if(db->verifyUser(username, password))
-        return true;
-    return false;
+System::~System()
+{
+    delete db;
 }
+
+bool System::login(QString username, QString password)
+{
+    return db->verifyUser(username, password);
+}
+
 bool System::loginProvider(QString name, QString password)
 {
-    if(db->verifyProvider(name, password))
-        return true;
-    return false;
+    return db->verifyProvider(name, password);
 }
-void System::addProvider(const Provider& provider) {
 
+void System::registerUser(QString username, QString password)
+{
+    db->registerUser(username, password);
+}
+
+void System::addProvider(const Provider& provider)
+{
     db->addProvider(provider);
 }
 
-std::vector<Provider> System::filterByCategory(QString category) {
-    std::vector<Provider> result;
-
-    result= db->getProviders(category);
-
-    return result;
+std::vector<Provider> System::filterByCategory(QString category)
+{
+    return db->getProviders(category);
 }
 
-bool System::bookService(User user, Provider provider, QString date) {
+bool System::bookService(User user, Provider provider, QString date)
+{
     db->saveBooking(user, provider, date);
     bookingVersion++;
+    std::string providerName = provider.getUserName();
+    std::string userName = user.getUserName();
 
     notifier.addNotification(
-        provider.getUserName(),
-        "New booking from " + user.getUserName()
-    );
+        providerName,
+        "New booking from " + userName
+        );
 
     notifier.addNotification(
-        user.getUserName(),
-        "Booking confirmed with " + provider.getUserName()
-    );
-
+        userName,
+        "Booking confirmed with " + providerName
+        );
     return true;
 }
 
@@ -70,14 +77,21 @@ std::vector<Booking> System::getBookings() const {
     return result;
 }
 
-void System::registerUser(QString username, QString password)
+std::vector<Provider> System::getProviders()
 {
-    db->registerUser(username, password);
+    // Pass empty string to get all providers (assumes DB supports it)
+    return db->getProviders("");
 }
 
-System::~System()
+// Finds a provider by name by fetching all from DB.
+// Returns a pointer into a locally-allocated Provider; caller must not
+// store this pointer long-term (use a copy instead for safety).
+Provider* System::findProviderByName(const QString& name)
 {
-    delete db;
+    providers = db->getProviders("");   // refresh local cache
+    for (auto& p : providers) {
+        if (p.getUserName() == name.toStdString())
+            return &p;
+    }
+    return nullptr;
 }
-
-

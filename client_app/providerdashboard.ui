@@ -6,308 +6,1548 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>771</width>
-    <height>546</height>
+    <width>1100</width>
+    <height>700</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string>Provider Dashboard</string>
   </property>
-  <widget class="QWidget" name="widget" native="true">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>20</y>
-     <width>751</width>
-     <height>411</height>
-    </rect>
+  <property name="styleSheet">
+   <string notr="true">QWidget#ProviderDashboard{background-color:#f5f5fa;}QWidget#sidebarWidget{background-color:#1a1a2e;}QFrame#cardFrame{background-color:#ffffff;border-radius:12px;border:1px solid #e5e7eb;}QLabel#welcomeLabel{font-size:20px;font-weight:bold;color:#1a1a2e;}QLabel#logoLabel{font-size:17px;font-weight:bold;color:#ffffff;padding:20px 16px 8px;}QLineEdit{background:#f9fafb;border:1px solid #d1d5db;border-radius:8px;padding:8px 12px;font-size:14px;color:#111827;}QLineEdit:focus{border:1px solid #6366f1;background:#ffffff;}QTextEdit{background:#f9fafb;border:1px solid #d1d5db;border-radius:8px;padding:8px 12px;font-size:14px;color:#111827;}QTextEdit:focus{border:1px solid #6366f1;}QPushButton#saveProfileBtn,QPushButton#toggleAvailabilityBtn,QPushButton#saveScheduleBtn{background-color:#6366f1;color:white;border-radius:8px;padding:8px 18px;font-size:13px;font-weight:bold;border:none;}QPushButton#saveProfileBtn:hover,QPushButton#toggleAvailabilityBtn:hover,QPushButton#saveScheduleBtn:hover{background-color:#4f46e5;}QPushButton#acceptBookingBtn{background-color:#22c55e;color:white;border-radius:8px;padding:8px 18px;font-size:13px;font-weight:bold;border:none;}QPushButton#acceptBookingBtn:hover{background-color:#16a34a;}QPushButton#rejectBookingBtn{background-color:#ef4444;color:white;border-radius:8px;padding:8px 18px;font-size:13px;font-weight:bold;border:none;}QPushButton#rejectBookingBtn:hover{background-color:#dc2626;}QPushButton#clearBlockedDatesBtn{background-color:#f3f4f6;color:#374151;border-radius:8px;padding:8px 14px;font-size:13px;border:1px solid #d1d5db;}QPushButton#clearBlockedDatesBtn:hover{background-color:#e5e7eb;}QListWidget{background:#ffffff;border:1px solid #e5e7eb;border-radius:8px;font-size:13px;color:#374151;outline:none;}QListWidget::item{padding:10px 14px;border-bottom:1px solid #f3f4f6;}QListWidget::item:selected{background-color:#eef2ff;color:#4338ca;}QListWidget::item:hover{background-color:#f9fafb;}QProgressBar{border-radius:6px;background-color:#e5e7eb;text-align:center;font-size:11px;}QProgressBar::chunk{background-color:#6366f1;border-radius:6px;}QCheckBox{font-size:13px;color:#374151;spacing:8px;}QCheckBox::indicator{width:18px;height:18px;border-radius:4px;border:1px solid #d1d5db;background:#f9fafb;}QCheckBox::indicator:checked{background:#6366f1;border-color:#6366f1;}QScrollBar:vertical{background:#f5f5fa;width:6px;border-radius:3px;}QScrollBar::handle:vertical{background:#d1d5db;border-radius:3px;min-height:20px;}</string>
+  </property>
+  <layout class="QHBoxLayout" name="rootLayout">
+   <property name="spacing">
+    <number>0</number>
    </property>
-   <property name="styleSheet">
-    <string notr="true">
-background-color: rgb(223, 255, 219);</string>
+   <property name="leftMargin">
+    <number>0</number>
    </property>
-   <widget class="QLabel" name="welcomeLabel">
-    <property name="geometry">
-     <rect>
-      <x>30</x>
-      <y>10</y>
-      <width>101</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>15</pointsize>
-      <italic>true</italic>
-      <bold>false</bold>
-     </font>
-    </property>
-    <property name="text">
-     <string>Welcome </string>
-    </property>
-   </widget>
-   <widget class="QWidget" name="verticalLayoutWidget">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>40</y>
-      <width>131</width>
-      <height>271</height>
-     </rect>
-    </property>
-    <layout class="QVBoxLayout" name="verticalLayout">
-     <item>
-      <widget class="QPushButton" name="profileBtn">
-       <property name="text">
-        <string>Profile</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="bookingsBtn">
-       <property name="text">
-        <string>Bookings</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="reviewsBtn">
-       <property name="text">
-        <string>Reviews</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="availabilityBtn">
-       <property name="text">
-        <string>Availability</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="earningsBtn">
-       <property name="text">
-        <string>Earnings</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </widget>
-   <widget class="QStackedWidget" name="stackedWidget">
-    <property name="geometry">
-     <rect>
-      <x>150</x>
-      <y>40</y>
-      <width>251</width>
-      <height>291</height>
-     </rect>
-    </property>
-    <property name="currentIndex">
-     <number>0</number>
-    </property>
-    <widget class="QWidget" name="ProfilePage">
-     <widget class="QLabel" name="statusLabel">
-      <property name="geometry">
-       <rect>
-        <x>80</x>
-        <y>80</y>
-        <width>57</width>
-        <height>14</height>
-       </rect>
+   <property name="topMargin">
+    <number>0</number>
+   </property>
+   <property name="rightMargin">
+    <number>0</number>
+   </property>
+   <property name="bottomMargin">
+    <number>0</number>
+   </property>
+   <item>
+    <widget class="QWidget" name="sidebarWidget">
+     <property name="minimumSize">
+      <size>
+       <width>220</width>
+       <height>0</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>220</width>
+       <height>16777215</height>
+      </size>
+     </property>
+     <layout class="QVBoxLayout" name="sidebarLayout">
+      <property name="spacing">
+       <number>4</number>
       </property>
-      <property name="text">
-       <string/>
+      <property name="leftMargin">
+       <number>12</number>
       </property>
-     </widget>
-     <widget class="QWidget" name="verticalLayoutWidget_3">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>10</y>
-        <width>201</width>
-        <height>251</height>
-       </rect>
+      <property name="topMargin">
+       <number>0</number>
       </property>
-      <layout class="QVBoxLayout" name="verticalLayout_3">
-       <item>
-        <layout class="QHBoxLayout" name="horizontalLayout">
-         <item>
-          <widget class="QLabel" name="label">
-           <property name="text">
-            <string>Name:</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QLabel" name="nameLabel">
-           <property name="styleSheet">
-            <string notr="true">background-color: rgb(255, 255, 255);</string>
-           </property>
-           <property name="text">
-            <string/>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </item>
-       <item>
-        <layout class="QHBoxLayout" name="horizontalLayout_3">
-         <item>
-          <widget class="QLabel" name="label_2">
-           <property name="text">
-            <string>Category :</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QLabel" name="categoryLabel">
-           <property name="styleSheet">
-            <string notr="true">background-color: rgb(255, 255, 255);</string>
-           </property>
-           <property name="text">
-            <string/>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </item>
-       <item>
-        <layout class="QHBoxLayout" name="horizontalLayout_2">
-         <item>
-          <widget class="QLabel" name="label_3">
-           <property name="text">
-            <string>Price : </string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QLabel" name="priceLabel">
-           <property name="styleSheet">
-            <string notr="true">background-color: rgb(255, 255, 255);</string>
-           </property>
-           <property name="text">
-            <string/>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </item>
-       <item>
-        <layout class="QHBoxLayout" name="horizontalLayout_4">
-         <item>
-          <widget class="QLabel" name="label_4">
-           <property name="text">
-            <string>Description :</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QLineEdit" name="priceInput"/>
-         </item>
-        </layout>
-       </item>
-       <item>
-        <widget class="QLabel" name="label_6">
-         <property name="text">
-          <string>Status: </string>
+      <property name="rightMargin">
+       <number>12</number>
+      </property>
+      <property name="bottomMargin">
+       <number>20</number>
+      </property>
+      <item>
+       <widget class="QLabel" name="logoLabel">
+        <property name="text">
+         <string>ServiceHub</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="portalLabel">
+        <property name="text">
+         <string>PROVIDER PORTAL</string>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color:#6366f1;font-size:10px;font-weight:bold;letter-spacing:2px;padding:0 4px 12px;</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="navProfileBtn">
+        <property name="text">
+         <string>  Profile</string>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton{background:transparent;color:#9ca3af;border-radius:8px;padding:10px 16px;text-align:left;font-size:13px;border:none;}QPushButton:hover{background:#2d2d4e;color:#ffffff;}</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="navBookingsBtn">
+        <property name="text">
+         <string>  Bookings</string>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton{background:transparent;color:#9ca3af;border-radius:8px;padding:10px 16px;text-align:left;font-size:13px;border:none;}QPushButton:hover{background:#2d2d4e;color:#ffffff;}</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="navReviewsBtn">
+        <property name="text">
+         <string>  Reviews</string>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton{background:transparent;color:#9ca3af;border-radius:8px;padding:10px 16px;text-align:left;font-size:13px;border:none;}QPushButton:hover{background:#2d2d4e;color:#ffffff;}</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="navAvailabilityBtn">
+        <property name="text">
+         <string>  Availability</string>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton{background:transparent;color:#9ca3af;border-radius:8px;padding:10px 16px;text-align:left;font-size:13px;border:none;}QPushButton:hover{background:#2d2d4e;color:#ffffff;}</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="navEarningsBtn">
+        <property name="text">
+         <string>  Earnings</string>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton{background:transparent;color:#9ca3af;border-radius:8px;padding:10px 16px;text-align:left;font-size:13px;border:none;}QPushButton:hover{background:#2d2d4e;color:#ffffff;}</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="sidebarSpacer">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>40</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QFrame" name="sidebarCard">
+        <property name="styleSheet">
+         <string notr="true">QFrame#sidebarCard{background-color:#2d2d4e;border-radius:10px;border:none;}</string>
+        </property>
+        <layout class="QVBoxLayout" name="sidebarCardLayout">
+         <property name="spacing">
+          <number>4</number>
          </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QTextEdit" name="descriptionInput"/>
-       </item>
-       <item>
-        <widget class="QPushButton" name="saveProfileBtn">
-         <property name="text">
-          <string>Save Changes</string>
+         <property name="leftMargin">
+          <number>12</number>
          </property>
+         <property name="topMargin">
+          <number>12</number>
+         </property>
+         <property name="rightMargin">
+          <number>12</number>
+         </property>
+         <property name="bottomMargin">
+          <number>12</number>
+         </property>
+         <item>
+          <widget class="QLabel" name="sidebarNameLabel">
+           <property name="text">
+            <string>Provider Name</string>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">color:#ffffff;font-weight:bold;font-size:13px;</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="sidebarCategoryLabel">
+           <property name="text">
+            <string>Category</string>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">color:#9ca3af;font-size:11px;</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="profileStatusBadge">
+           <property name="text">
+            <string>Available</string>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">color:#4ade80;font-size:11px;font-weight:bold;</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QWidget" name="contentWidget">
+     <layout class="QVBoxLayout" name="contentVLayout">
+      <property name="spacing">
+       <number>0</number>
+      </property>
+      <property name="leftMargin">
+       <number>0</number>
+      </property>
+      <property name="topMargin">
+       <number>0</number>
+      </property>
+      <property name="rightMargin">
+       <number>0</number>
+      </property>
+      <property name="bottomMargin">
+       <number>0</number>
+      </property>
+      <item>
+       <widget class="QWidget" name="headerWidget">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>64</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>16777215</width>
+          <height>64</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QWidget#headerWidget{background-color:#ffffff;border-bottom:1px solid #e5e7eb;}</string>
+        </property>
+        <layout class="QHBoxLayout" name="headerLayout">
+         <property name="leftMargin">
+          <number>28</number>
+         </property>
+         <property name="topMargin">
+          <number>0</number>
+         </property>
+         <property name="rightMargin">
+          <number>28</number>
+         </property>
+         <property name="bottomMargin">
+          <number>0</number>
+         </property>
+         <item>
+          <widget class="QLabel" name="welcomeLabel">
+           <property name="text">
+            <string>Welcome back</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="headerSpacer">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item>
+       <widget class="QStackedWidget" name="mainStack">
+        <property name="currentIndex">
+         <number>0</number>
+        </property>
+        <widget class="QWidget" name="ProfilePage">
+         <layout class="QVBoxLayout" name="profilePageLayout">
+          <property name="leftMargin">
+           <number>28</number>
+          </property>
+          <property name="topMargin">
+           <number>24</number>
+          </property>
+          <property name="rightMargin">
+           <number>28</number>
+          </property>
+          <property name="bottomMargin">
+           <number>24</number>
+          </property>
+          <property name="spacing">
+           <number>20</number>
+          </property>
+          <item>
+           <widget class="QLabel" name="profilePageTitle">
+            <property name="text">
+             <string>My Profile</string>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">font-size:20px;font-weight:bold;color:#1a1a2e;</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="profileRowLayout">
+            <property name="spacing">
+             <number>20</number>
+            </property>
+            <item>
+             <widget class="QFrame" name="infoCard">
+              <property name="styleSheet">
+               <string notr="true">QFrame#infoCard{background-color:#ffffff;border-radius:12px;border:1px solid #e5e7eb;}</string>
+              </property>
+              <layout class="QVBoxLayout" name="infoCardLayout">
+               <property name="leftMargin">
+                <number>20</number>
+               </property>
+               <property name="topMargin">
+                <number>20</number>
+               </property>
+               <property name="rightMargin">
+                <number>20</number>
+               </property>
+               <property name="bottomMargin">
+                <number>20</number>
+               </property>
+               <property name="spacing">
+                <number>8</number>
+               </property>
+               <item>
+                <widget class="QLabel" name="infoCardTitle">
+                 <property name="text">
+                  <string>Service Information</string>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">font-size:14px;font-weight:bold;color:#374151;margin-bottom:6px;</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLabel" name="infoNameKey">
+                 <property name="text">
+                  <string>Name</string>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">color:#6b7280;font-size:12px;</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLabel" name="profileNameLabel">
+                 <property name="text">
+                  <string>—</string>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">font-weight:bold;font-size:15px;color:#1a1a2e;</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLabel" name="infoCatKey">
+                 <property name="text">
+                  <string>Category</string>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">color:#6b7280;font-size:12px;margin-top:6px;</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLabel" name="profileCategoryLabel">
+                 <property name="text">
+                  <string>—</string>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">background:#eef2ff;color:#4338ca;border-radius:6px;padding:3px 10px;font-size:12px;font-weight:bold;</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLabel" name="infoPriceKey">
+                 <property name="text">
+                  <string>Current Rate</string>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">color:#6b7280;font-size:12px;margin-top:6px;</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLabel" name="profilePriceDisplay">
+                 <property name="text">
+                  <string>—</string>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">font-size:18px;font-weight:bold;color:#6366f1;</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLabel" name="infoStatusKey">
+                 <property name="text">
+                  <string>Status</string>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">color:#6b7280;font-size:12px;margin-top:6px;</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLabel" name="profileStatusBadge2">
+                 <property name="text">
+                  <string>—</string>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">font-weight:bold;font-size:13px;color:#16a34a;</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <spacer name="infoCardSpacer">
+                 <property name="orientation">
+                  <enum>Qt::Vertical</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>20</width>
+                   <height>20</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item>
+             <widget class="QFrame" name="editCard">
+              <property name="styleSheet">
+               <string notr="true">QFrame#editCard{background-color:#ffffff;border-radius:12px;border:1px solid #e5e7eb;}</string>
+              </property>
+              <layout class="QVBoxLayout" name="editCardLayout">
+               <property name="leftMargin">
+                <number>20</number>
+               </property>
+               <property name="topMargin">
+                <number>20</number>
+               </property>
+               <property name="rightMargin">
+                <number>20</number>
+               </property>
+               <property name="bottomMargin">
+                <number>20</number>
+               </property>
+               <property name="spacing">
+                <number>8</number>
+               </property>
+               <item>
+                <widget class="QLabel" name="editCardTitle">
+                 <property name="text">
+                  <string>Edit Profile</string>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">font-size:14px;font-weight:bold;color:#374151;margin-bottom:6px;</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLabel" name="priceInputLabel">
+                 <property name="text">
+                  <string>New Hourly Rate ($)</string>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">color:#374151;font-size:13px;</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLineEdit" name="priceInput">
+                 <property name="placeholderText">
+                  <string>e.g. 75.00</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLabel" name="descInputLabel">
+                 <property name="text">
+                  <string>Service Description</string>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">color:#374151;font-size:13px;margin-top:6px;</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QTextEdit" name="descriptionInput">
+                 <property name="placeholderText">
+                  <string>Describe your service, experience, specialties...</string>
+                 </property>
+                 <property name="minimumSize">
+                  <size>
+                   <width>0</width>
+                   <height>100</height>
+                  </size>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QPushButton" name="saveProfileBtn">
+                 <property name="text">
+                  <string>Save Changes</string>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>160</width>
+                   <height>16777215</height>
+                  </size>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <spacer name="editCardSpacer">
+                 <property name="orientation">
+                  <enum>Qt::Vertical</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>20</width>
+                   <height>20</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+              </layout>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <spacer name="profilePageSpacer">
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>20</width>
+              <height>40</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
         </widget>
-       </item>
-      </layout>
-     </widget>
+        <widget class="QWidget" name="BookingsPage">
+         <layout class="QVBoxLayout" name="bookingsPageLayout">
+          <property name="leftMargin">
+           <number>28</number>
+          </property>
+          <property name="topMargin">
+           <number>24</number>
+          </property>
+          <property name="rightMargin">
+           <number>28</number>
+          </property>
+          <property name="bottomMargin">
+           <number>24</number>
+          </property>
+          <property name="spacing">
+           <number>20</number>
+          </property>
+          <item>
+           <widget class="QLabel" name="bookingsPageTitle">
+            <property name="text">
+             <string>Bookings</string>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">font-size:20px;font-weight:bold;color:#1a1a2e;</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="bookingsRowLayout">
+            <property name="spacing">
+             <number>20</number>
+            </property>
+            <item>
+             <widget class="QFrame" name="pendingCard">
+              <property name="styleSheet">
+               <string notr="true">QFrame#pendingCard{background-color:#ffffff;border-radius:12px;border:1px solid #e5e7eb;}</string>
+              </property>
+              <layout class="QVBoxLayout" name="pendingCardLayout">
+               <property name="leftMargin">
+                <number>20</number>
+               </property>
+               <property name="topMargin">
+                <number>20</number>
+               </property>
+               <property name="rightMargin">
+                <number>20</number>
+               </property>
+               <property name="bottomMargin">
+                <number>20</number>
+               </property>
+               <property name="spacing">
+                <number>12</number>
+               </property>
+               <item>
+                <layout class="QHBoxLayout" name="pendingHeaderLayout">
+                 <item>
+                  <widget class="QLabel" name="pendingCardTitle">
+                   <property name="text">
+                    <string>Pending Requests</string>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">font-size:14px;font-weight:bold;color:#374151;</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <spacer name="pendingHeaderSpacer">
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
+                   </property>
+                   <property name="sizeHint" stdset="0">
+                    <size>
+                     <width>40</width>
+                     <height>20</height>
+                    </size>
+                   </property>
+                  </spacer>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="pendingCountLabel">
+                   <property name="text">
+                    <string>0 pending</string>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">background:#fef9c3;color:#854d0e;border-radius:12px;padding:3px 10px;font-size:11px;font-weight:bold;</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+               <item>
+                <widget class="QListWidget" name="pendingBookingsList">
+                 <property name="minimumSize">
+                  <size>
+                   <width>0</width>
+                   <height>200</height>
+                  </size>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <layout class="QHBoxLayout" name="bookingActionsLayout">
+                 <property name="spacing">
+                  <number>10</number>
+                 </property>
+                 <item>
+                  <widget class="QPushButton" name="acceptBookingBtn">
+                   <property name="text">
+                    <string>Accept</string>
+                   </property>
+                   <property name="enabled">
+                    <bool>false</bool>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QPushButton" name="rejectBookingBtn">
+                   <property name="text">
+                    <string>Reject</string>
+                   </property>
+                   <property name="enabled">
+                    <bool>false</bool>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <spacer name="actionsSpacer">
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
+                   </property>
+                   <property name="sizeHint" stdset="0">
+                    <size>
+                     <width>40</width>
+                     <height>20</height>
+                    </size>
+                   </property>
+                  </spacer>
+                 </item>
+                </layout>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item>
+             <widget class="QFrame" name="historyCard">
+              <property name="styleSheet">
+               <string notr="true">QFrame#historyCard{background-color:#ffffff;border-radius:12px;border:1px solid #e5e7eb;}</string>
+              </property>
+              <layout class="QVBoxLayout" name="historyCardLayout">
+               <property name="leftMargin">
+                <number>20</number>
+               </property>
+               <property name="topMargin">
+                <number>20</number>
+               </property>
+               <property name="rightMargin">
+                <number>20</number>
+               </property>
+               <property name="bottomMargin">
+                <number>20</number>
+               </property>
+               <property name="spacing">
+                <number>12</number>
+               </property>
+               <item>
+                <layout class="QHBoxLayout" name="historyHeaderLayout">
+                 <item>
+                  <widget class="QLabel" name="historyCardTitle">
+                   <property name="text">
+                    <string>Booking History</string>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">font-size:14px;font-weight:bold;color:#374151;</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <spacer name="historyHeaderSpacer">
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
+                   </property>
+                   <property name="sizeHint" stdset="0">
+                    <size>
+                     <width>40</width>
+                     <height>20</height>
+                    </size>
+                   </property>
+                  </spacer>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="historyCountLabel">
+                   <property name="text">
+                    <string>0 completed</string>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">background:#dcfce7;color:#166534;border-radius:12px;padding:3px 10px;font-size:11px;font-weight:bold;</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+               <item>
+                <widget class="QListWidget" name="bookingHistoryList">
+                 <property name="minimumSize">
+                  <size>
+                   <width>0</width>
+                   <height>200</height>
+                  </size>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <spacer name="bookingsPageSpacer">
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>20</width>
+              <height>40</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </widget>
+        <widget class="QWidget" name="ReviewsPage">
+         <layout class="QVBoxLayout" name="reviewsPageLayout">
+          <property name="leftMargin">
+           <number>28</number>
+          </property>
+          <property name="topMargin">
+           <number>24</number>
+          </property>
+          <property name="rightMargin">
+           <number>28</number>
+          </property>
+          <property name="bottomMargin">
+           <number>24</number>
+          </property>
+          <property name="spacing">
+           <number>20</number>
+          </property>
+          <item>
+           <widget class="QLabel" name="reviewsPageTitle">
+            <property name="text">
+             <string>Reviews and Ratings</string>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">font-size:20px;font-weight:bold;color:#1a1a2e;</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="reviewsRowLayout">
+            <property name="spacing">
+             <number>20</number>
+            </property>
+            <item>
+             <widget class="QFrame" name="ratingCard">
+              <property name="styleSheet">
+               <string notr="true">QFrame#ratingCard{background-color:#ffffff;border-radius:12px;border:1px solid #e5e7eb;}</string>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>200</width>
+                <height>16777215</height>
+               </size>
+              </property>
+              <layout class="QVBoxLayout" name="ratingCardLayout">
+               <property name="leftMargin">
+                <number>20</number>
+               </property>
+               <property name="topMargin">
+                <number>24</number>
+               </property>
+               <property name="rightMargin">
+                <number>20</number>
+               </property>
+               <property name="bottomMargin">
+                <number>24</number>
+               </property>
+               <property name="spacing">
+                <number>12</number>
+               </property>
+               <item>
+                <widget class="QLabel" name="ratingCardTitle">
+                 <property name="text">
+                  <string>Average Rating</string>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">font-size:14px;font-weight:bold;color:#374151;</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLabel" name="avgRatingLabel">
+                 <property name="text">
+                  <string>—</string>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">font-size:36px;font-weight:bold;color:#f59e0b;</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QProgressBar" name="ratingBar">
+                 <property name="value">
+                  <number>0</number>
+                 </property>
+                 <property name="minimumSize">
+                  <size>
+                   <width>0</width>
+                   <height>10</height>
+                  </size>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLabel" name="ratingOutOfLabel">
+                 <property name="text">
+                  <string>out of 5.0</string>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">color:#9ca3af;font-size:12px;</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <spacer name="ratingCardSpacer">
+                 <property name="orientation">
+                  <enum>Qt::Vertical</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>20</width>
+                   <height>40</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item>
+             <widget class="QFrame" name="reviewsListCard">
+              <property name="styleSheet">
+               <string notr="true">QFrame#reviewsListCard{background-color:#ffffff;border-radius:12px;border:1px solid #e5e7eb;}</string>
+              </property>
+              <layout class="QVBoxLayout" name="reviewsListCardLayout">
+               <property name="leftMargin">
+                <number>20</number>
+               </property>
+               <property name="topMargin">
+                <number>20</number>
+               </property>
+               <property name="rightMargin">
+                <number>20</number>
+               </property>
+               <property name="bottomMargin">
+                <number>20</number>
+               </property>
+               <property name="spacing">
+                <number>12</number>
+               </property>
+               <item>
+                <widget class="QLabel" name="reviewsListTitle">
+                 <property name="text">
+                  <string>Customer Reviews</string>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">font-size:14px;font-weight:bold;color:#374151;</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QListWidget" name="reviewsList">
+                 <property name="minimumSize">
+                  <size>
+                   <width>0</width>
+                   <height>260</height>
+                  </size>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <spacer name="reviewsPageSpacer">
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>20</width>
+              <height>40</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </widget>
+        <widget class="QWidget" name="AvailabilityPage">
+         <layout class="QVBoxLayout" name="availPageLayout">
+          <property name="leftMargin">
+           <number>28</number>
+          </property>
+          <property name="topMargin">
+           <number>24</number>
+          </property>
+          <property name="rightMargin">
+           <number>28</number>
+          </property>
+          <property name="bottomMargin">
+           <number>24</number>
+          </property>
+          <property name="spacing">
+           <number>20</number>
+          </property>
+          <item>
+           <widget class="QLabel" name="availPageTitle">
+            <property name="text">
+             <string>Availability and Schedule</string>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">font-size:20px;font-weight:bold;color:#1a1a2e;</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="availRowLayout">
+            <property name="spacing">
+             <number>20</number>
+            </property>
+            <item>
+             <widget class="QFrame" name="calendarCard">
+              <property name="styleSheet">
+               <string notr="true">QFrame#calendarCard{background-color:#ffffff;border-radius:12px;border:1px solid #e5e7eb;}</string>
+              </property>
+              <layout class="QVBoxLayout" name="calendarCardLayout">
+               <property name="leftMargin">
+                <number>20</number>
+               </property>
+               <property name="topMargin">
+                <number>20</number>
+               </property>
+               <property name="rightMargin">
+                <number>20</number>
+               </property>
+               <property name="bottomMargin">
+                <number>20</number>
+               </property>
+               <property name="spacing">
+                <number>12</number>
+               </property>
+               <item>
+                <widget class="QLabel" name="calendarCardTitle">
+                 <property name="text">
+                  <string>Block Unavailable Dates</string>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">font-size:14px;font-weight:bold;color:#374151;</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLabel" name="calendarHintLabel">
+                 <property name="text">
+                  <string>Click a date to block or unblock it</string>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">color:#9ca3af;font-size:12px;</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QCalendarWidget" name="availabilityCalendar">
+                 <property name="minimumSize">
+                  <size>
+                   <width>0</width>
+                   <height>220</height>
+                  </size>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <layout class="QHBoxLayout" name="calendarFooterLayout">
+                 <item>
+                  <widget class="QLabel" name="blockedDatesCountLabel">
+                   <property name="text">
+                    <string>0 date(s) blocked</string>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">color:#6b7280;font-size:12px;</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <spacer name="calFooterSpacer">
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
+                   </property>
+                   <property name="sizeHint" stdset="0">
+                    <size>
+                     <width>40</width>
+                     <height>20</height>
+                    </size>
+                   </property>
+                  </spacer>
+                 </item>
+                 <item>
+                  <widget class="QPushButton" name="clearBlockedDatesBtn">
+                   <property name="text">
+                    <string>Clear All</string>
+                   </property>
+                   <property name="maximumSize">
+                    <size>
+                     <width>100</width>
+                     <height>16777215</height>
+                    </size>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item>
+             <layout class="QVBoxLayout" name="availRightColumn">
+              <property name="spacing">
+               <number>16</number>
+              </property>
+              <item>
+               <widget class="QFrame" name="statusCard">
+                <property name="styleSheet">
+                 <string notr="true">QFrame#statusCard{background-color:#ffffff;border-radius:12px;border:1px solid #e5e7eb;}</string>
+                </property>
+                <layout class="QVBoxLayout" name="statusCardLayout">
+                 <property name="leftMargin">
+                  <number>20</number>
+                 </property>
+                 <property name="topMargin">
+                  <number>20</number>
+                 </property>
+                 <property name="rightMargin">
+                  <number>20</number>
+                 </property>
+                 <property name="bottomMargin">
+                  <number>20</number>
+                 </property>
+                 <property name="spacing">
+                  <number>12</number>
+                 </property>
+                 <item>
+                  <widget class="QLabel" name="statusCardTitle">
+                   <property name="text">
+                    <string>Overall Status</string>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">font-size:14px;font-weight:bold;color:#374151;</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="availabilityStatusLabel">
+                   <property name="text">
+                    <string>Status: Available</string>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">font-size:15px;font-weight:bold;color:#16a34a;</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QPushButton" name="toggleAvailabilityBtn">
+                   <property name="text">
+                    <string>Set as Unavailable</string>
+                   </property>
+                   <property name="maximumSize">
+                    <size>
+                     <width>200</width>
+                     <height>16777215</height>
+                    </size>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+              <item>
+               <widget class="QFrame" name="scheduleCard">
+                <property name="styleSheet">
+                 <string notr="true">QFrame#scheduleCard{background-color:#ffffff;border-radius:12px;border:1px solid #e5e7eb;}</string>
+                </property>
+                <layout class="QVBoxLayout" name="scheduleCardLayout">
+                 <property name="leftMargin">
+                  <number>20</number>
+                 </property>
+                 <property name="topMargin">
+                  <number>20</number>
+                 </property>
+                 <property name="rightMargin">
+                  <number>20</number>
+                 </property>
+                 <property name="bottomMargin">
+                  <number>20</number>
+                 </property>
+                 <property name="spacing">
+                  <number>8</number>
+                 </property>
+                 <item>
+                  <widget class="QLabel" name="scheduleCardTitle">
+                   <property name="text">
+                    <string>Weekly Working Days</string>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">font-size:14px;font-weight:bold;color:#374151;margin-bottom:4px;</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="monCheck">
+                   <property name="text">
+                    <string>Monday</string>
+                   </property>
+                   <property name="checked">
+                    <bool>true</bool>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="tueCheck">
+                   <property name="text">
+                    <string>Tuesday</string>
+                   </property>
+                   <property name="checked">
+                    <bool>true</bool>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="wedCheck">
+                   <property name="text">
+                    <string>Wednesday</string>
+                   </property>
+                   <property name="checked">
+                    <bool>true</bool>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="thuCheck">
+                   <property name="text">
+                    <string>Thursday</string>
+                   </property>
+                   <property name="checked">
+                    <bool>true</bool>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="friCheck">
+                   <property name="text">
+                    <string>Friday</string>
+                   </property>
+                   <property name="checked">
+                    <bool>true</bool>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="satCheck">
+                   <property name="text">
+                    <string>Saturday</string>
+                   </property>
+                   <property name="checked">
+                    <bool>false</bool>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="sunCheck">
+                   <property name="text">
+                    <string>Sunday</string>
+                   </property>
+                   <property name="checked">
+                    <bool>false</bool>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QPushButton" name="saveScheduleBtn">
+                   <property name="text">
+                    <string>Save Schedule</string>
+                   </property>
+                   <property name="maximumSize">
+                    <size>
+                     <width>160</width>
+                     <height>16777215</height>
+                    </size>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+              <item>
+               <spacer name="availRightSpacer">
+                <property name="orientation">
+                 <enum>Qt::Vertical</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>20</width>
+                  <height>40</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+             </layout>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <spacer name="availPageSpacer">
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>20</width>
+              <height>40</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </widget>
+        <widget class="QWidget" name="EarningsPage">
+         <layout class="QVBoxLayout" name="earningsPageLayout">
+          <property name="leftMargin">
+           <number>28</number>
+          </property>
+          <property name="topMargin">
+           <number>24</number>
+          </property>
+          <property name="rightMargin">
+           <number>28</number>
+          </property>
+          <property name="bottomMargin">
+           <number>24</number>
+          </property>
+          <property name="spacing">
+           <number>20</number>
+          </property>
+          <item>
+           <widget class="QLabel" name="earningsPageTitle">
+            <property name="text">
+             <string>Earnings Summary</string>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">font-size:20px;font-weight:bold;color:#1a1a2e;</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="metricsRowLayout">
+            <property name="spacing">
+             <number>16</number>
+            </property>
+            <item>
+             <widget class="QFrame" name="totalEarningsCard">
+              <property name="styleSheet">
+               <string notr="true">QFrame#totalEarningsCard{background-color:#ffffff;border-radius:12px;border:1px solid #e5e7eb;}</string>
+              </property>
+              <layout class="QVBoxLayout" name="totalEarningsCardLayout">
+               <property name="leftMargin">
+                <number>20</number>
+               </property>
+               <property name="topMargin">
+                <number>20</number>
+               </property>
+               <property name="rightMargin">
+                <number>20</number>
+               </property>
+               <property name="bottomMargin">
+                <number>20</number>
+               </property>
+               <property name="spacing">
+                <number>6</number>
+               </property>
+               <item>
+                <widget class="QLabel" name="totalEarningsKey">
+                 <property name="text">
+                  <string>Total Earnings</string>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">font-size:12px;color:#6b7280;</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLabel" name="totalEarningsLabel">
+                 <property name="text">
+                  <string>$0.00</string>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">font-size:26px;font-weight:bold;color:#6366f1;</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item>
+             <widget class="QFrame" name="completedJobsCard">
+              <property name="styleSheet">
+               <string notr="true">QFrame#completedJobsCard{background-color:#ffffff;border-radius:12px;border:1px solid #e5e7eb;}</string>
+              </property>
+              <layout class="QVBoxLayout" name="completedJobsCardLayout">
+               <property name="leftMargin">
+                <number>20</number>
+               </property>
+               <property name="topMargin">
+                <number>20</number>
+               </property>
+               <property name="rightMargin">
+                <number>20</number>
+               </property>
+               <property name="bottomMargin">
+                <number>20</number>
+               </property>
+               <property name="spacing">
+                <number>6</number>
+               </property>
+               <item>
+                <widget class="QLabel" name="completedJobsKey">
+                 <property name="text">
+                  <string>Completed Jobs</string>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">font-size:12px;color:#6b7280;</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLabel" name="completedJobsLabel">
+                 <property name="text">
+                  <string>0</string>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">font-size:26px;font-weight:bold;color:#22c55e;</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item>
+             <widget class="QFrame" name="avgPerJobCard">
+              <property name="styleSheet">
+               <string notr="true">QFrame#avgPerJobCard{background-color:#ffffff;border-radius:12px;border:1px solid #e5e7eb;}</string>
+              </property>
+              <layout class="QVBoxLayout" name="avgPerJobCardLayout">
+               <property name="leftMargin">
+                <number>20</number>
+               </property>
+               <property name="topMargin">
+                <number>20</number>
+               </property>
+               <property name="rightMargin">
+                <number>20</number>
+               </property>
+               <property name="bottomMargin">
+                <number>20</number>
+               </property>
+               <property name="spacing">
+                <number>6</number>
+               </property>
+               <item>
+                <widget class="QLabel" name="avgPerJobKey">
+                 <property name="text">
+                  <string>Avg. Per Job</string>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">font-size:12px;color:#6b7280;</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLabel" name="avgPerJobLabel">
+                 <property name="text">
+                  <string>$0.00</string>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">font-size:26px;font-weight:bold;color:#f59e0b;</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <widget class="QFrame" name="goalCard">
+            <property name="styleSheet">
+             <string notr="true">QFrame#goalCard{background-color:#ffffff;border-radius:12px;border:1px solid #e5e7eb;}</string>
+            </property>
+            <layout class="QVBoxLayout" name="goalCardLayout">
+             <property name="leftMargin">
+              <number>24</number>
+             </property>
+             <property name="topMargin">
+              <number>20</number>
+             </property>
+             <property name="rightMargin">
+              <number>24</number>
+             </property>
+             <property name="bottomMargin">
+              <number>20</number>
+             </property>
+             <property name="spacing">
+              <number>12</number>
+             </property>
+             <item>
+              <widget class="QLabel" name="goalCardTitle">
+               <property name="text">
+                <string>Monthly Goal Progress</string>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">font-size:14px;font-weight:bold;color:#374151;</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QProgressBar" name="earningsProgressBar">
+               <property name="value">
+                <number>0</number>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>14</height>
+                </size>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="earningsGoalLabel">
+               <property name="text">
+                <string>$0.00 / $1,000 monthly goal</string>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">color:#6b7280;font-size:12px;</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item>
+           <spacer name="earningsPageSpacer">
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>20</width>
+              <height>40</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </widget>
+       </widget>
+      </item>
+     </layout>
     </widget>
-    <widget class="QWidget" name="AvailabilityPage">
-     <widget class="QLabel" name="label_5">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>10</y>
-        <width>161</width>
-        <height>16</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Availability Status :</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="availabilityBtnToggle">
-      <property name="geometry">
-       <rect>
-        <x>0</x>
-        <y>40</y>
-        <width>141</width>
-        <height>22</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Toggle Availability</string>
-      </property>
-     </widget>
-    </widget>
-    <widget class="QWidget" name="ReviewsPage">
-     <widget class="QListWidget" name="reviewsList">
-      <property name="geometry">
-       <rect>
-        <x>0</x>
-        <y>60</y>
-        <width>211</width>
-        <height>161</height>
-       </rect>
-      </property>
-     </widget>
-    </widget>
-    <widget class="QWidget" name="EarningsPage">
-     <widget class="QLabel" name="earningsLabel">
-      <property name="geometry">
-       <rect>
-        <x>0</x>
-        <y>40</y>
-        <width>131</width>
-        <height>16</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Total earnings :</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="jobLabel">
-      <property name="geometry">
-       <rect>
-        <x>0</x>
-        <y>90</y>
-        <width>111</width>
-        <height>16</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Completed Jobs :</string>
-      </property>
-     </widget>
-    </widget>
-    <widget class="QWidget" name="BookingsPage">
-     <widget class="QListWidget" name="bookingList">
-      <property name="geometry">
-       <rect>
-        <x>30</x>
-        <y>30</y>
-        <width>131</width>
-        <height>191</height>
-       </rect>
-      </property>
-     </widget>
-    </widget>
-   </widget>
-  </widget>
+   </item>
+  </layout>
  </widget>
  <resources/>
  <connections/>
