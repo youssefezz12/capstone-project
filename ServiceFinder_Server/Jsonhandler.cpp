@@ -4,7 +4,19 @@
 json::object JsonHandler::processRequest( json::value& request, std::shared_ptr<System> system)
 {
     std::string command = request.as_object()["command"].as_string().c_str();
+if(action == "notifications")
+{
+    QString user = request["username"].as_string().c_str();
 
+    auto notes = system->getUserNotifications(user);
+
+    json::array arr;
+
+    for(auto &n : notes)
+        arr.push_back(n);
+
+    response["notifications"] = arr;
+}
     if(command == "login")
     {
         return handleLogin(request, system);

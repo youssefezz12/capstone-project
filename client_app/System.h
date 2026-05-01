@@ -1,6 +1,6 @@
 #ifndef SYSTEM_H
 #define SYSTEM_H
-
+#include "notifications.h"
 #include <vector>
 #include <string>
 #include <QString>
@@ -13,8 +13,10 @@ class System {
 private:
     std::vector<User>     users;
     std::vector<Provider> providers;
-    std::vector<Booking>  bookings;
-    DatabaseManager*      db;
+    std::vector<Booking> bookings;
+    DatabaseManager *db;
+    Notifications notifier;
+    int bookingVersion = 0;
 
 public:
     System();
@@ -28,10 +30,9 @@ public:
 
     std::vector<Provider> filterByCategory(QString category);
     bool bookService(User user, Provider provider, QString date);
-
-    std::vector<Booking>  getBookings() const;
-
-    // Returns all providers from DB (used by dashboard to resolve current provider)
+    std::vector<std::string> getUserNotifications(QString username);
+    int getVersion() const;
+    std::vector<Booking> getBookings() const;
     std::vector<Provider> getProviders();
 
     // Convenience: find one provider by name via DB
