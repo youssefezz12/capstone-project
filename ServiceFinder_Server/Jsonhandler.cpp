@@ -4,16 +4,17 @@
 json::object JsonHandler::processRequest( json::value& request, std::shared_ptr<System> system)
 {
     std::string command = request.as_object()["command"].as_string().c_str();
-if(action == "notifications")
+if(command == "notifications")
 {
-    QString user = request["username"].as_string().c_str();
+        json::object response;
+        QString user = request.as_object()["username"].as_string().c_str();
 
     auto notes = system->getUserNotifications(user);
 
     json::array arr;
 
     for(auto &n : notes)
-        arr.push_back(n);
+        arr.push_back(json::string(n));
 
     response["notifications"] = arr;
 }

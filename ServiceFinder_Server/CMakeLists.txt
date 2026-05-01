@@ -26,6 +26,8 @@ add_executable(ServiceFinder_Server
     ${SYSTEM_PATH}/Databasemanager.cpp
     ${SYSTEM_PATH}/User.cpp
     ${SYSTEM_PATH}/Provider.cpp
+    ${SYSTEM_PATH}/Booking.cpp
+    ${SYSTEM_PATH}/notifications.cpp
     Jsonhandler.cpp Jsonhandler.h
 )
 

@@ -15,7 +15,7 @@ private:
     std::vector<Provider> providers;
     std::vector<Booking> bookings;
     DatabaseManager *db;
-    notifications notifier;
+    Notifications notifier;
     int bookingVersion = 0;
 
 public:
