@@ -2,6 +2,7 @@
 #include <QDebug>
 #include <fstream>
 #include <sstream>
+#include <string>
 
 
 System::System()
@@ -41,17 +42,18 @@ std::vector<Provider> System::filterByCategory(QString category) {
 bool System::bookService(User user, Provider provider, QString date) {
     db->saveBooking(user, provider, date);
     bookingVersion++;
+    std::string providerName = provider.getUserName();
+    std::string userName = user.getUserName();
 
     notifier.addNotification(
-        provider.getUserName(),
-        "New booking from " + user.getUserName()
-    );
+        providerName,
+        "New booking from " + userName
+        );
 
     notifier.addNotification(
-        user.getUserName(),
-        "Booking confirmed with " + provider.getUserName()
-    );
-
+        userName,
+        "Booking confirmed with " + providerName
+        );
     return true;
 }
 
