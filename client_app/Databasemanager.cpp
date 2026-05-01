@@ -6,7 +6,7 @@
 DatabaseManager::DatabaseManager() {
 
     db = QSqlDatabase::addDatabase("QSQLITE");
-    db.setDatabaseName("/home/hassaan/Project/Capstone-project/ServiceFinder_Server/servicefinder.db");
+    db.setDatabaseName("../service_finder.db");
 
     if (!db.open()) {
         qDebug() << "Error: Connection with database failed:" << db.lastError().text();

@@ -10,7 +10,7 @@ set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTORCC ON)
 
 
-set(SYSTEM_PATH "/home/sama/Capstone/client_app")
+set(SYSTEM_PATH "../client_app")
 
 # 1. Find Qt6 (or Qt5 - check your version!)
 find_package(Qt6 REQUIRED COMPONENTS Core Sql)
