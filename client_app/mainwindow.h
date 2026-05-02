@@ -12,7 +12,6 @@
 #include "usersearch.h"
 #include "providerdashboard.h"
 
-
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -28,10 +27,13 @@ public:
 private slots:
     void showLogin();
     void showCustomerDashboard();
-    void showProviderDashboard();          // no-arg version matching friends' code
-    void handleSearch(QString category);
+    void showProviderDashboard();
+
     void handleLogin(QString username, QString password, bool isProvider);
     void handleRegister(QString username, QString password, bool isProvider);
+    void handleSearch(QString category);
+    void handleBookService(QString providerName, QString date);
+
     void on_readReady();
 
 private:
@@ -44,7 +46,9 @@ private:
     QTcpSocket*        socket;
 
     bool    isProvider;
-    QString loggedInUsername;   // stored at login time, passed to dashboard
+    QString loggedInUsername;
+
+    void sendJson(const QJsonObject& obj);
 };
 
 #endif

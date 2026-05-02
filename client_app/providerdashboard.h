@@ -10,66 +10,62 @@
 #include <QCalendarWidget>
 #include <QCheckBox>
 #include <QProgressBar>
-#include <QFrame>
 #include <QSet>
 #include <QDate>
+#include <QJsonArray>
 #include "System.h"
 #include "Provider.h"
 
-namespace Ui {
-class ProviderDashboard;
-}
+namespace Ui { class ProviderDashboard; }
 
 class ProviderDashboard : public QWidget
 {
     Q_OBJECT
 
 public:
-    explicit ProviderDashboard(QWidget *parent = nullptr);
+    explicit ProviderDashboard(QWidget* parent = nullptr);
     ~ProviderDashboard();
 
-    // Called by MainWindow::showProviderDashboard() after successful login.
-    // Fetches the matching Provider from the DB via System and loads all pages.
-    void loadForProvider(System* sys, const QString& providerName);
+    // Called by MainWindow after getProviderByName response arrives.
+    // p is built from the server JSON — no direct DB access needed.
+    void loadFromProvider(const Provider& p, System* sys);
+
+    // Called by MainWindow after getBookings response arrives.
+    void loadBookingsFromJson(const QJsonArray& bookings);
+
+signals:
+    // Emitted when the provider saves a new price — MainWindow should
+    // send an updateProvider command to the server (future work).
+    void profileUpdated(const Provider& updatedProvider);
 
 private slots:
     void showPage(int index);
-
     void onSaveProfile();
-
     void onToggleAvailability();
     void onDateSelected(const QDate& date);
     void onClearBlockedDates();
-
     void onAcceptBooking();
     void onRejectBooking();
     void onBookingSelectionChanged();
-
     void onSaveSchedule();
 
 private:
     Ui::ProviderDashboard* ui;
     System*   system;
-
-    // Pointer to provider fetched from DB — refreshed on each login
-    Provider* currentProvider;
+    Provider* currentProvider;   // pointer — no default constructor needed
     bool      providerLoaded;
 
     QSet<QDate> blockedDates;
 
-    // Page loaders
-    void loadData();
     void loadProfilePage();
-    void loadBookingsPage();
     void loadReviewsPage();
     void loadEarningsPage();
     void loadAvailabilityPage();
 
-    // Helpers
-    void    updateNavHighlight(int index);
-    void    refreshCalendarHighlights();
-    double  calculateTotalEarnings();
-    int     countCompletedJobs();
+    void   updateNavHighlight(int index);
+    void   refreshCalendarHighlights();
+    double calculateTotalEarnings();
+    int    countCompletedJobs();
 };
 
 #endif // PROVIDERDASHBOARD_H

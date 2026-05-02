@@ -1,15 +1,8 @@
 #include "System.h"
 #include <QDebug>
-#include <fstream>
-#include <sstream>
-#include <string>
-
 
 System::System()
 {
-    providers.clear();
-    users.clear();
-    bookings.clear();
     db = new DatabaseManager();
 }
 
@@ -17,6 +10,10 @@ System::~System()
 {
     delete db;
 }
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Auth
+// ─────────────────────────────────────────────────────────────────────────────
 
 bool System::login(QString username, QString password)
 {
@@ -33,9 +30,19 @@ void System::registerUser(QString username, QString password)
     db->registerUser(username, password);
 }
 
+// ─────────────────────────────────────────────────────────────────────────────
+// Providers
+// ─────────────────────────────────────────────────────────────────────────────
+
 void System::addProvider(const Provider& provider)
 {
     db->addProvider(provider);
+}
+
+// Persists changes made in the provider dashboard (price, category, availability).
+void System::updateProvider(const Provider& provider)
+{
+    db->updateProvider(provider);
 }
 
 std::vector<Provider> System::filterByCategory(QString category)
@@ -43,55 +50,49 @@ std::vector<Provider> System::filterByCategory(QString category)
     return db->getProviders(category);
 }
 
-bool System::bookService(User user, Provider provider, QString date)
-{
-    db->saveBooking(user, provider, date);
-    bookingVersion++;
-    std::string providerName = provider.getUserName();
-    std::string userName = user.getUserName();
-
-    notifier.addNotification(
-        providerName,
-        "New booking from " + userName
-        );
-
-    notifier.addNotification(
-        userName,
-        "Booking confirmed with " + providerName
-        );
-    return true;
-}
-
-std::vector<std::string> System::getUserNotifications(QString username)
-{
-    return notifier.getNotifications(username.toStdString());
-}
-
-int System::getVersion() const
-{
-    return bookingVersion;
-}
-
-std::vector<Booking> System::getBookings() const {
-    auto result = db->getBooking();        // add implementation of this function
-    return result;
-}
-
+// Returns ALL providers — uses getAllProviders() so an empty string does not
+// produce zero results (the old getProviders("") bug).
 std::vector<Provider> System::getProviders()
 {
-    // Pass empty string to get all providers (assumes DB supports it)
-    return db->getProviders("");
+    providers = db->getAllProviders();
+    return providers;
 }
 
-// Finds a provider by name by fetching all from DB.
-// Returns a pointer into a locally-allocated Provider; caller must not
-// store this pointer long-term (use a copy instead for safety).
+// Fetches a single provider by username directly from the DB.
+// Returns a pointer into the local cache — valid until the next getProviders() call.
 Provider* System::findProviderByName(const QString& name)
 {
-    providers = db->getProviders("");   // refresh local cache
+    // Refresh local cache from DB so we always have up-to-date data
+    providers = db->getAllProviders();
     for (auto& p : providers) {
         if (p.getUserName() == name.toStdString())
             return &p;
     }
     return nullptr;
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Bookings
+// ─────────────────────────────────────────────────────────────────────────────
+
+bool System::bookService(User user, Provider provider, QString date)
+{
+    db->saveBooking(user, provider, date);
+    return true;
+}
+
+std::vector<Booking> System::getBookings() const
+{
+    return db->getBooking();
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Notifications (stub — wire to a Notifications table when ready)
+// ─────────────────────────────────────────────────────────────────────────────
+
+std::vector<std::string> System::getUserNotifications(const QString& username)
+{
+    Q_UNUSED(username)
+    // Return empty list until a Notifications table is added to the DB.
+    return {};
 }

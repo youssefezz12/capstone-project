@@ -1,6 +1,6 @@
 #ifndef SYSTEM_H
 #define SYSTEM_H
-#include "notifications.h"
+
 #include <vector>
 #include <string>
 #include <QString>
@@ -12,31 +12,32 @@
 class System {
 private:
     std::vector<User>     users;
-    std::vector<Provider> providers;
-    std::vector<Booking> bookings;
-    DatabaseManager *db;
-    Notifications notifier;
-    int bookingVersion = 0;
+    std::vector<Provider> providers;   // local cache for findProviderByName
+    std::vector<Booking>  bookings;
+    DatabaseManager*      db;
 
 public:
     System();
     ~System();
 
+    // Auth
     void registerUser(QString username, QString password);
     bool login(QString username, QString password);
     bool loginProvider(QString name, QString password);
 
+    // Providers
     void addProvider(const Provider& provider);
-
+    void updateProvider(const Provider& provider);          //  persists dashboard edits
     std::vector<Provider> filterByCategory(QString category);
-    bool bookService(User user, Provider provider, QString date);
-    std::vector<std::string> getUserNotifications(QString username);
-    int getVersion() const;
-    std::vector<Booking> getBookings() const;
     std::vector<Provider> getProviders();
+    Provider* findProviderByName(const QString& name);      // used by server getProviderByName
 
-    // Convenience: find one provider by name via DB
-    Provider* findProviderByName(const QString& name);
+    // Bookings
+    bool bookService(User user, Provider provider, QString date);
+    std::vector<Booking> getBookings() const;
+
+    // Notifications (stub — returns empty list until implemented)
+    std::vector<std::string> getUserNotifications(const QString& username);
 };
 
 #endif
